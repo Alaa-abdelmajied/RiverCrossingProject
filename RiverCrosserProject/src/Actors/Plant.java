@@ -56,5 +56,11 @@ public class Plant implements ICrosser {
 		return null;
 	}
 
+	@Override
+	public double getweight() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	
 }
