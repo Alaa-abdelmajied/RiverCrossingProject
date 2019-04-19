@@ -1,7 +1,6 @@
-package Actors;
+package GameEngine;
 
-public class Plant implements ICrosser {
-
+public class game {
 
 	/*
 	 * Attributes
@@ -16,7 +15,6 @@ public class Plant implements ICrosser {
 	/*
 	 * Behavior
 	 */
-	
 	
 	
 }

@@ -1,7 +1,7 @@
-package Actors;
+package LevelCreater;
 
-public class Plant implements ICrosser {
-
+public class level1 {
+	
 
 	/*
 	 * Attributes
@@ -16,7 +16,5 @@ public class Plant implements ICrosser {
 	/*
 	 * Behavior
 	 */
-	
-	
 	
 }

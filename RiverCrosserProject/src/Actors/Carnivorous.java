@@ -1,8 +1,7 @@
 package Actors;
 
-public class Plant implements ICrosser {
-
-
+public class Carnivorous extends Animal{
+	
 	/*
 	 * Attributes
 	 */
@@ -18,5 +17,5 @@ public class Plant implements ICrosser {
 	 */
 	
 	
-	
+
 }
