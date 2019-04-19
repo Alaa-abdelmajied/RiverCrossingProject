@@ -5,7 +5,9 @@ import java.awt.image.BufferedImage;
 public interface ICrosser {
 	
 	
-	public boolean canSail (); 
+	public boolean canSail ();
+	
+	public double getweight();
 	
 	public int getEatingRank ();
 
