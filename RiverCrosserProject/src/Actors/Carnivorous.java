@@ -19,7 +19,7 @@ public class Carnivorous implements ICrosser {
 	@Override
 	public int getEatingRank() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 2;
 	}
 
 	@Override
@@ -46,19 +46,7 @@ public class Carnivorous implements ICrosser {
 		return null;
 	}
 	
-	/*
-	 * Attributes
-	 */
 	
-	
-	/*
-	 * Getters and setters
-	 */
-	
-	
-	/*
-	 * Behavior
-	 */
 	
 	
 
