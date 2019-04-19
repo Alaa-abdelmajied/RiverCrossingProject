@@ -19,7 +19,7 @@ public class Herbivorous implements ICrosser {
 	@Override
 	public int getEatingRank() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 1;
 	}
 
 	@Override
