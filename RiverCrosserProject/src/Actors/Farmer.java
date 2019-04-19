@@ -9,6 +9,7 @@ public class Farmer implements ICrosser {
 	 * Attributes
 	 */
 	
+	private double weight;
 	
 	/*
 	 * Getters and setters
@@ -18,17 +19,19 @@ public class Farmer implements ICrosser {
 	/*
 	 * Behavior
 	 */
+	
+	public Farmer(double weight) {
+		this.weight = weight;
+	}
 
 	@Override
 	public boolean canSail() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 	
 	@Override
 	public int getEatingRank() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 5;
 	}
 
 	@Override
@@ -57,8 +60,7 @@ public class Farmer implements ICrosser {
 
 	@Override
 	public double getweight() {
-		// TODO Auto-generated method stub
-		return 0;
+		return weight;
 	}
 
 	
