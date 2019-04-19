@@ -6,8 +6,11 @@ public class actorFactory {
 			return null;
 		if(crosserType.equalsIgnoreCase("farmer"))
 			return new Farmer();
-		else if (crosserType.equalsIgnoreCase("animal"))
-			return new Animal();
+		else if (crosserType.equalsIgnoreCase("Herbivorous"))
+			return new Herbivorous();
+		else if(crosserType.equalsIgnoreCase("carnivorous"))
+			return new Carnivorous();
+		
 		else if (crosserType.equalsIgnoreCase("plant"))
 			return new Plant ();
 		return null;
