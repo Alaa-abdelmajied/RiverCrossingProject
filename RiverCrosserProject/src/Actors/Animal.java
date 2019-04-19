@@ -19,6 +19,14 @@ public class Animal implements ICrosser{
 	 * Behavior
 	 */
 
+	
+
+	@Override
+	public boolean canSail() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	@Override
 	public int getEatingRank() {
 		// TODO Auto-generated method stub
@@ -49,7 +57,6 @@ public class Animal implements ICrosser{
 		return null;
 	}
 
-	
 	
 	
 }

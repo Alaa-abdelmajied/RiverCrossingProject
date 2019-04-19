@@ -18,6 +18,12 @@ public class Farmer implements ICrosser {
 	/*
 	 * Behavior
 	 */
+
+	@Override
+	public boolean canSail() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	@Override
 	public int getEatingRank() {
