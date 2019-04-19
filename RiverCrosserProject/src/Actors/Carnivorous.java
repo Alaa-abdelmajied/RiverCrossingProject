@@ -4,6 +4,20 @@ import java.awt.image.BufferedImage;
 
 public class Carnivorous implements ICrosser {
 
+	/*
+	 * Attributes
+	 */
+	
+	
+	private double weight ; 
+	
+	
+	
+	/*
+	 *Behavior
+	 */
+	
+	
 	@Override
 	public boolean canSail() {
 		// TODO Auto-generated method stub
