@@ -4,26 +4,15 @@ import java.awt.image.BufferedImage;
 
 public class Plant implements ICrosser {
 
-
 	/*
 	 * Attributes
 	 */
 	
-	
+	private double weight;
+
 	/*
 	 * Getters and setters
 	 */
-	
-	
-	/*
-	 * Behavior
-	 */
-	
-
-	@Override
-	public boolean canSail() {
-		return false;
-	}
 	
 	@Override
 	public int getEatingRank() {
@@ -36,13 +25,8 @@ public class Plant implements ICrosser {
 	}
 
 	@Override
-	public ICrosser makeCopy() {
-		return null;
-	}
-
-	@Override
 	public void setLabelToBeShown(String label) {
-		
+
 	}
 
 	@Override
@@ -54,6 +38,24 @@ public class Plant implements ICrosser {
 	public double getweight() {
 		return 0;
 	}
-
 	
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
+
+
+	/*
+	 * Behavior
+	 */
+
+	@Override
+	public boolean canSail() {
+		return false;
+	}
+
+	@Override
+	public ICrosser makeCopy() {
+		return null;
+	}
+
 }

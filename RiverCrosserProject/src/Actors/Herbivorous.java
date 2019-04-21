@@ -4,27 +4,23 @@ import java.awt.image.BufferedImage;
 
 public class Herbivorous implements ICrosser {
 
-
 	/*
 	 * Attributes
 	 */
-	
-	private double weight ; 
-	
+
+	private double weight;
+
 	/*
 	 * Getters and setters
 	 */
-	
 
 	@Override
 	public double getweight() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int getEatingRank() {
-		// TODO Auto-generated method stub
 		return 1;
 	}
 
@@ -33,11 +29,11 @@ public class Herbivorous implements ICrosser {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	@Override
 	public void setLabelToBeShown(String label) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -45,20 +41,21 @@ public class Herbivorous implements ICrosser {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 
-	
-	
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
+
+
 	/*
 	 * Behavior
 	 */
-	
-	
+
 	@Override
 	public boolean canSail() {
-		// TODO Auto-generated method stub
 		return false;
 	}
-
 
 	@Override
 	public ICrosser makeCopy() {

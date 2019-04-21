@@ -12,22 +12,18 @@ public class Carnivorous implements ICrosser {
 	private double weight ; 
 	
 	
-	
 	/*
-	 *Behavior
+	 * Getters and setters
 	 */
 	
-	
-	@Override
-	public boolean canSail() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 	@Override
 	public double getweight() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	
+	public void setWeight(double weight) {
+		this.weight = weight;
 	}
 
 	@Override
@@ -38,12 +34,6 @@ public class Carnivorous implements ICrosser {
 
 	@Override
 	public BufferedImage[] getImages() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ICrosser makeCopy() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -61,6 +51,26 @@ public class Carnivorous implements ICrosser {
 	}
 	
 	
+	
+	/*
+	 *Behavior
+	 */
+	
+	
+	@Override
+	public boolean canSail() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public ICrosser makeCopy() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 	
 	
 

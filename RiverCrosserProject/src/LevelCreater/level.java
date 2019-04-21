@@ -8,6 +8,7 @@ import Actors.ICrosser;
 public class level {
 	
 	ICrossingStrategy strategy ;
+	
 	 public level(ICrossingStrategy strategy) {
 		 this.strategy=strategy;
 	 }
@@ -20,6 +21,13 @@ public class level {
 			List<ICrosser> list = new ArrayList<ICrosser> ();
 			list=this.strategy.getInitialCrossers();
 			return list;
+		}
+		
+		public String[] getInstructions() {
+			String[] instructions = new String[3];
+			instructions = this.strategy.getInstructions();
+			return instructions;
+
 		}
 
 }

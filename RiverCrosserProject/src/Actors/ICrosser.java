@@ -9,6 +9,8 @@ public interface ICrosser {
 	
 	public double getweight();
 	
+	public void setWeight(double weight);
+	
 	public int getEatingRank ();
 
 	public BufferedImage[] getImages();
