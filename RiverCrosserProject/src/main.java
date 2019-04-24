@@ -32,7 +32,7 @@ public class main {
 		Farmer farmer2 = new Farmer ();
 		farmer2.setWeight(80);
 		Farmer farmer3 = new Farmer ();
-		farmer3.setWeight(60);
+		//farmer3.setWeight(60);
 		Farmer farmer4 = new Farmer ();
 		farmer4.setWeight(40);
 		
@@ -41,20 +41,26 @@ public class main {
         
 		plant.setWeight(20);
 		
-		boat.add(farmer1);
-		right.add(plant);
 		boat.add(farmer3);
+		//boat.add(farmer4);
+
+		/*right.add(plant);
+		left.add(farmer3);
 		left.add(farmer4);
 
-		left.add(farmer2);
+		left.add(farmer2);*/
 
-		boolean x = level.isValid(right,left,boat);
+		//boolean x = level.isValid(right,left,boat);
 		
-		System.out.println(x);
+		//System.out.println(x);
 		Game game =new Game ();
-		ICrossingStrategy level2 = new Level2();
-		game.newGame(level2);
-		System.out.println(game.getInstructions()[2]);
+		ICrossingStrategy level1 = new Level1();
+		game.newGame(level1);
+		//System.out.println(game.canMove(boat, false ));
+		System.out.println(game.canMove(boat, false ));
+		game.doMove(boat, false);
+		//game.doMove(boat, true);
+		//System.out.println(game.getCrossersOnRightBank().get(1).getweight());
 	}
 	/*intialCrossers.add(lion);
 	intialCrossers.add(goat);

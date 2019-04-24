@@ -9,7 +9,8 @@ public class Game implements IRiverCrossingController {
 
 	private List<ICrosser> CrossersOnRightBank = new ArrayList<ICrosser>();
 	private List<ICrosser> CrossersOnLeftBank = new ArrayList<ICrosser>();
-	
+	private List<ICrosser> CrossersOnRightBankCopy = new ArrayList<ICrosser>();
+	private List<ICrosser> CrossersOnLeftBankCopy = new ArrayList<ICrosser>();
 	private ICrossingStrategy gameStrategy;
 	private boolean isBoatOnTheLeftBank = false;
 	private int numberOfSails = 0;
@@ -19,7 +20,7 @@ public class Game implements IRiverCrossingController {
 
 		this.gameStrategy = gameStrategy;
 		LevelCreater.Level level = new LevelCreater.Level(gameStrategy);
-		CrossersOnLeftBank = level.getInitialCrossers();
+		CrossersOnRightBank = level.getInitialCrossers();
 
 	}
 
@@ -60,7 +61,11 @@ public class Game implements IRiverCrossingController {
 
 	@Override
 	public boolean canMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
-		if (fromLeftToRightBank) {
+		if( gameStrategy.isValid(getCrossersOnRightBank(), getCrossersOnLeftBank(), crossers))
+			return true;
+		else
+			return false;
+	/*	if (fromLeftToRightBank) {
 			for (int i = 0; i < crossers.size(); i++) {
 				CrossersOnLeftBank.remove(crossers.get(i));
 				CrossersOnRightBank.add(crossers.get(i));
@@ -71,33 +76,31 @@ public class Game implements IRiverCrossingController {
 			for (int i = 0; i < crossers.size(); i++) {
 				CrossersOnLeftBank.add(crossers.get(i));
 				CrossersOnRightBank.remove(crossers.get(i));
-
 			}
 		}
-		boolean canMove = gameStrategy.isValid(getCrossersOnRightBank(), getCrossersOnLeftBank(), crossers);
 		if(canMove)
 			return true;
-		else {
-			if (fromLeftToRightBank) {
-				for (int i = 0; i < crossers.size(); i++) {
-					CrossersOnLeftBank.add(crossers.get(i));
-					CrossersOnRightBank.remove(crossers.get(i));
-				}
+		else 
+			return false;*/
+	}
 
-			} else {
+	@Override
+	public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
+		if(canMove(crossers, fromLeftToRightBank)) {
+			if (fromLeftToRightBank) {
 				for (int i = 0; i < crossers.size(); i++) {
 					CrossersOnLeftBank.remove(crossers.get(i));
 					CrossersOnRightBank.add(crossers.get(i));
 
 				}
+
+			} else {
+				for (int i = 0; i < crossers.size(); i++) {
+					CrossersOnLeftBank.add(crossers.get(i));
+					CrossersOnRightBank.remove(crossers.get(i));
+				}
 			}
-			return false;
 		}
-	}
-
-	@Override
-	public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
-
 	}
 
 	@Override

@@ -36,7 +36,7 @@ public class Plant implements ICrosserModified {
 
 	@Override
 	public double getweight() {
-		return 0;
+		return weight;
 	}
 	
 	public void setWeight(double weight) {

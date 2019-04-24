@@ -16,7 +16,7 @@ public class Herbivorous implements ICrosserModified {
 
 	@Override
 	public double getweight() {
-		return 0;
+		return weight;
 	}
 
 	@Override
