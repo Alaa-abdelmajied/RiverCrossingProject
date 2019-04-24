@@ -5,11 +5,11 @@ import java.util.List;
 
 import Actors.ICrosser;
 
-public class level {
+public class Level {
 	
 	ICrossingStrategy strategy ;
 	
-	 public level(ICrossingStrategy strategy) {
+	 public Level(ICrossingStrategy strategy) {
 		 this.strategy=strategy;
 	 }
 	 public boolean isValid(List<ICrosser> rightBankCrossers, List<ICrosser> leftBankCrossers,

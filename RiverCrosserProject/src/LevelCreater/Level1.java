@@ -8,9 +8,9 @@ import Actors.Farmer;
 import Actors.Herbivorous;
 import Actors.ICrosser;
 import Actors.Plant;
-import Actors.actorFactory;
+import Actors.ActorFactory;
 
-public class level1 implements ICrossingStrategy {
+public class Level1 implements ICrossingStrategy {
 
 	/*
 	 * Attributes
@@ -51,7 +51,7 @@ public class level1 implements ICrossingStrategy {
 		
 		List<ICrosser> intialCrossers = new ArrayList<ICrosser>();
 		
-		actorFactory factory = new actorFactory();
+		ActorFactory factory = new ActorFactory();
 		ICrosser farmer =factory.getcrosser("farmer");
 		farmer.setLabelToBeShown("Can not eat anything");
 		ICrosser goat =factory.getcrosser("herbivorous");
@@ -74,7 +74,7 @@ public class level1 implements ICrossingStrategy {
 		String[] instructions = new String[3];
 		instructions[0] = "Help the farmer to move lion, goat and plant across the river";
 		instructions[1] = "The boat can not move without the farmer";
-		instructions[2] = "When the farmer is not nearby the lion will eat the goat and the goat will eat the plant but you can leave the 3 of them alone";
+		instructions[2] = "When the farmer is not nearby the wolf will eat the goat and the goat will eat the plant but you can leave the 3 of them alone";
 		return instructions;
 	}
 

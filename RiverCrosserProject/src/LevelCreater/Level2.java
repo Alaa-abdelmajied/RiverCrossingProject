@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Actors.ICrosser;
-import Actors.actorFactory;
+import Actors.ICrosserModified;
+import Actors.ActorFactory;
 
-public class level2 implements ICrossingStrategy {
+public class Level2 implements ICrossingStrategy {
 
 	/*
 	 * Attributes
@@ -41,20 +42,20 @@ public class level2 implements ICrossingStrategy {
 		
 		List<ICrosser> intialCrossers = new ArrayList<ICrosser>();
 		
-		actorFactory factory = new actorFactory();
-		ICrosser farmer1 =factory.getcrosser("farmer");
+		ActorFactory factory = new ActorFactory();
+		ICrosserModified farmer1 =factory.getcrosser("farmer");
 		farmer1.setWeight(90);
 		farmer1.setLabelToBeShown(String.valueOf(farmer1.getweight()));
-		ICrosser farmer2 =factory.getcrosser("farmer");
+		ICrosserModified farmer2 =factory.getcrosser("farmer");
 		farmer2.setWeight(80);
 		farmer2.setLabelToBeShown(String.valueOf(farmer2.getweight()));
-		ICrosser farmer3 =factory.getcrosser("farmer");
+		ICrosserModified farmer3 =factory.getcrosser("farmer");
 		farmer3.setWeight(60);
 		farmer3.setLabelToBeShown(String.valueOf(farmer3.getweight()));
-		ICrosser farmer4 =factory.getcrosser("farmer");
+		ICrosserModified farmer4 =factory.getcrosser("farmer");
 		farmer4.setWeight(40);
 		farmer4.setLabelToBeShown(String.valueOf(farmer4.getweight()));
-		ICrosser goat =factory.getcrosser("herbivorous");
+		ICrosserModified goat =factory.getcrosser("herbivorous");
 		goat.setWeight(20);
 		goat.setLabelToBeShown(String.valueOf(goat.getweight()));
 		

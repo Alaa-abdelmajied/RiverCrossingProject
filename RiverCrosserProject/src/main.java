@@ -8,6 +8,7 @@ import Actors.Farmer;
 import Actors.Herbivorous;
 import Actors.ICrosser;
 import Actors.Plant;
+import GameEngine.Game;
 
 public class main {
 	
@@ -18,7 +19,7 @@ public class main {
 		List <ICrosser> boat =new ArrayList <ICrosser>();
 		List <ICrosser> right =new ArrayList <ICrosser>();
 		List <ICrosser> left =new ArrayList <ICrosser>();
-		level level = new level (new level2());
+		Level level = new Level (new Level2());
 		//right=level.getInitialCrossers();
 		
 		/*ICrosser farmer1 = new Farmer();
@@ -42,7 +43,7 @@ public class main {
 		
 		boat.add(farmer1);
 		right.add(plant);
-		left.add(farmer3);
+		boat.add(farmer3);
 		left.add(farmer4);
 
 		left.add(farmer2);
@@ -50,6 +51,10 @@ public class main {
 		boolean x = level.isValid(right,left,boat);
 		
 		System.out.println(x);
+		Game game =new Game ();
+		ICrossingStrategy level2 = new Level2();
+		game.newGame(level2);
+		System.out.println(game.getInstructions()[2]);
 	}
 	/*intialCrossers.add(lion);
 	intialCrossers.add(goat);

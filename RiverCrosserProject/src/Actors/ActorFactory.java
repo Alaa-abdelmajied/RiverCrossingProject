@@ -1,7 +1,7 @@
 package Actors;
 
-public class actorFactory {
-	public ICrosser getcrosser (String crosserType) {
+public class ActorFactory {
+	public ICrosserModified getcrosser (String crosserType) {
 		if(crosserType==null)
 			return null;
 		if(crosserType.equalsIgnoreCase("farmer"))

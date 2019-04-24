@@ -8,9 +8,7 @@ public interface ICrosser {
 	public boolean canSail ();
 	
 	public double getweight();
-	
-	public void setWeight(double weight);
-	
+		
 	public int getEatingRank ();
 
 	public BufferedImage[] getImages();

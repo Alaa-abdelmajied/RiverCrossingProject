@@ -2,7 +2,7 @@ package Actors;
 
 import java.awt.image.BufferedImage;
 
-public class Plant implements ICrosser {
+public class Plant implements ICrosserModified {
 
 	/*
 	 * Attributes

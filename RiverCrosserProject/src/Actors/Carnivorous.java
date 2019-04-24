@@ -2,7 +2,7 @@ package Actors;
 
 import java.awt.image.BufferedImage;
 
-public class Carnivorous implements ICrosser {
+public class Carnivorous implements ICrosserModified {
 
 	/*
 	 * Attributes
