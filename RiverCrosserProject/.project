@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/XmlSaving/crossers.txt</name>
-			<type>1</type>
-			<location>C:/Users/nourpc/Desktop/quicktrial/crossers.txt</location>
-		</link>
-	</linkedResources>
 </projectDescription>

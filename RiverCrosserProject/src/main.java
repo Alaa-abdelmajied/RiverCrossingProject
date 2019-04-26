@@ -1,5 +1,7 @@
 
 import LevelCreater.*;
+import saving.FileReaderUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 import Actors.*;
@@ -59,6 +61,8 @@ public class main {
 		//System.out.println(game.canMove(boat, false ));
 		System.out.println(game.canMove(boat, false ));
 		game.doMove(boat, false);
+		FileReaderUtils fileReaderUtils = new FileReaderUtils();
+		fileReaderUtils.read();
 		//game.doMove(boat, true);
 		//System.out.println(game.getCrossersOnRightBank().get(1).getweight());
 	}
