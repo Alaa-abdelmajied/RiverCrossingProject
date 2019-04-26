@@ -71,7 +71,7 @@ public void createlevel1(Stage menustage) {
 		System.out.println("ssssss"+this.crossers.get(0));
 		x=new viewmanager();
 		mainPane = new AnchorPane();
-		String	mainPanestyle= "-fx-background-image: url('file:/C:/Users/Fujitsu/Desktop/backgrounfinal.jpeg');" ;
+		String	mainPanestyle= "-fx-background-image: url('file:backgrounfinal.jpeg');" ;
 		mainPane.setStyle(mainPanestyle);
 	level1Scene= new Scene(mainPane,800,600);
 	level1Stage=new Stage();
