@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<save>
+    <left> herbivorous </left>
+    <right> carnivorous plant </right>
+    <boat> farmer </boat>		
+
+<booleanFromLeftToRight> true </booleanFromLeftToRight>
+<NumberOfMoves> 3 </NumberOfMoves> 
+</save>
