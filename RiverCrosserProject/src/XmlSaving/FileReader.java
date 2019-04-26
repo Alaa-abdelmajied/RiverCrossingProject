@@ -1,4 +1,5 @@
 package XmlSaving;
+
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
@@ -7,42 +8,45 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import java.io.File;
 
-public class FileReader {
+
+public class FileReader{
 
   public static void main(String args[]) {
 
     try {
 
-	File fXmlFile = new File("file.xml.txt");
+	File fXmlFile = new File("crossers.txt");
+	
 	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 	Document doc = dBuilder.parse(fXmlFile);
-			
+	
+	System.out.println("----------------------------");
+
 	//optional, but recommended
 	//read this - http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
 	
 	doc.getDocumentElement().normalize();
-
 	System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
 			
-	NodeList nList = doc.getElementsByTagName("staff");
+	NodeList nList = doc.getElementsByTagName("ICrossers");
 			
-	System.out.println("----------------------------");
 
 	for (int temp = 0; temp < nList.getLength(); temp++) {
 
 		Node nNode = nList.item(temp);
-				
+			
 		System.out.println("\nCurrent Element :" + nNode.getNodeName());
 				
 		if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 
 			Element eElement = (Element) nNode;
-			System.out.println("Staff id : " + eElement.getAttribute("id"));
-			System.out.println("First Name : " + eElement.getElementsByTagName("firstname").item(0).getTextContent());
-			System.out.println("Last Name : " + eElement.getElementsByTagName("lastname").item(0).getTextContent());
-			System.out.println("Nick Name : " + eElement.getElementsByTagName("nickname").item(0).getTextContent());
-			System.out.println("Salary : " + eElement.getElementsByTagName("salary").item(0).getTextContent());
+			System.out.println("left:" +eElement.getElementsByTagName("left").item(0).getTextContent());
+			System.out.println("right:" +eElement.getElementsByTagName("right").item(0).getTextContent());
+			System.out.println("boat:" +eElement.getElementsByTagName("boat").item(0).getTextContent());
+			//System.out.println("Number of moves = " + eElement.getElementsByTagName("numberOfMoves=").item(0).getTextContent());
+			System.out.println("Boat at the left" +eElement.getElementsByTagName("boatAtTheLeft").item(0).getTextContent());
+			
 		}
 	}
     } catch (Exception e) {
