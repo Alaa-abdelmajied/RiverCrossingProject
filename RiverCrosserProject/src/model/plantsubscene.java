@@ -1,4 +1,5 @@
 package model;
+import Actors.ICrosser;
 import javafx.animation.TranslateTransition;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -16,7 +17,7 @@ import javafx.util.Duration;
 
 public class plantsubscene extends SubScene  {
 	private String Font_Path="src/model/resources/kenvector_future.ttf";
-	private String backimage="file:/C:/Users/SPIDER/Desktop/plant.png";
+	private String backimage="file:/C:/Users/Fujitsu/Desktop/plant.png";
 private  boolean ishidden;
 int x=0;double z;
 fxxsubscene boat;
@@ -24,7 +25,7 @@ TranslateTransition transition ;
 double orgSceneX, orgSceneY;
 double orgTranslateX, orgTranslateY;
 
-	public plantsubscene() {
+	public plantsubscene(ICrosser plant) {
 		super(new AnchorPane(), 20, 20);
 		int x=0;
 		prefWidth(600);

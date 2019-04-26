@@ -2,18 +2,28 @@ package GameEngine;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
+
 import Actors.ICrosser;
 import LevelCreater.ICrossingStrategy;
+import application.viewmanager;
 
 public class Game implements IRiverCrossingController {
 
 	private List<ICrosser> CrossersOnRightBank = new ArrayList<ICrosser>();
 	private List<ICrosser> CrossersOnLeftBank = new ArrayList<ICrosser>();
-	private List<ICrosser> CrossersOnRightBankCopy = new ArrayList<ICrosser>();
-	private List<ICrosser> CrossersOnLeftBankCopy = new ArrayList<ICrosser>();
+	//private List<ICrosser> CrossersOnRightBankCopy = new ArrayList<ICrosser>();
+	private List<ICrosser> Crossers = new ArrayList<ICrosser>();
 	private ICrossingStrategy gameStrategy;
 	private boolean isBoatOnTheLeftBank = false;
 	private int numberOfSails = 0;
+	List <List> state = new ArrayList <>();
+	Stack<List> undo = new Stack<List> ();
+	Stack<List> redo = new Stack<List> ();
+	viewmanager obj= new viewmanager();
+
+	
+	
 
 	@Override
 	public void newGame(ICrossingStrategy gameStrategy) {
@@ -21,6 +31,8 @@ public class Game implements IRiverCrossingController {
 		this.gameStrategy = gameStrategy;
 		LevelCreater.Level level = new LevelCreater.Level(gameStrategy);
 		CrossersOnRightBank = level.getInitialCrossers();
+		
+		
 
 	}
 
@@ -93,33 +105,66 @@ public class Game implements IRiverCrossingController {
 					CrossersOnRightBank.add(crossers.get(i));
 
 				}
+				
+				state.add(CrossersOnLeftBank);
+				state.add(crossers);
+				state.add(CrossersOnRightBank);
+				undo.push(state);
+				numberOfSails ++;
 
 			} else {
 				for (int i = 0; i < crossers.size(); i++) {
 					CrossersOnLeftBank.add(crossers.get(i));
 					CrossersOnRightBank.remove(crossers.get(i));
+					
 				}
+				state.add(CrossersOnLeftBank);
+				state.add(crossers);
+				state.add(CrossersOnRightBank);
+				undo.push(state);
+				numberOfSails ++;
+
 			}
+			
 		}
 	}
 
 	@Override
 	public boolean canUndo() {
-		return false;
+		if(undo.empty())
+			return false ;
+		return true;
 	}
 
 	@Override
 	public boolean canRedo() {
-		return false;
+		if(redo.empty())
+			return false ;
+		return true;	
 	}
 
 	@Override
 	public void undo() {
+		List<List> undoArray =new ArrayList<List>();
+		undoArray=undo.pop();
+		redo.push(undoArray);
+		CrossersOnLeftBank=undoArray.get(0);
+		Crossers=undoArray.get(1);
+		CrossersOnRightBank=undoArray.get(2);
+		numberOfSails ++;
+
 
 	}
 
 	@Override
 	public void redo() {
+		List<List> redoArray =new ArrayList<List>();
+		redoArray=redo.pop();
+		undo.push(redoArray);
+		CrossersOnLeftBank=redoArray.get(0);
+		Crossers=redoArray.get(1);
+		CrossersOnRightBank=redoArray.get(2);
+		numberOfSails ++;
 
 	}
 

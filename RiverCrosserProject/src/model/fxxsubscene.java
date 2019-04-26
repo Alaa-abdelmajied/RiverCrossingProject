@@ -14,11 +14,11 @@ import javafx.util.Duration;
 
 public class fxxsubscene extends SubScene {
 	private String Font_Path="src/model/resources/kenvector_future.ttf";
-	private String backimage="file:/C:/Users/SPIDER/Desktop/boat.png";
+	private String backimage="file:/C:/Users/Fujitsu/Desktop/boat.png";
 private  boolean ishidden;
 TranslateTransition transition;
 	int x;
-	farmer_subscene farmer=new farmer_subscene();
+	//farmer_subscene farmer=new farmer_subscene();
 	
 	
 	public double y;
@@ -41,12 +41,12 @@ TranslateTransition transition;
 	}
 	public boolean moveSubscene() {
 		boolean k = false;
-		System.out.println("parent sees"+farmer.isFarmeronboat());
+		
 		//farmer=new farmer_subscene();
 		 transition =new TranslateTransition();
 		transition.setDuration(Duration.seconds(1));
 		transition.setNode(this);
-		if(x==1&&farmer.isFarmeronboat()==true) {
+		if(x==1) {
 		transition.setToX(-635);y=transition.getToX();ishidden=false;x=0;
 		//y=transition.getToX();
 		k=true;

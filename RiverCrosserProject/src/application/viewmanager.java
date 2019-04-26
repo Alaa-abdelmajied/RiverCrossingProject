@@ -1,5 +1,11 @@
 package application;
 
+import java.util.List;
+
+import Actors.ICrosser;
+import GameEngine.Game;
+import LevelCreater.ICrossingStrategy;
+import LevelCreater.Level1;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -15,10 +21,12 @@ public class viewmanager {
 	private Scene mainScene;
 	private Stage mainStage;
 	 private fxxsubscene creditssub;
-	// level1 level1=new level1();
-	public viewmanager() {
+	 Game game;
+	 ICrossingStrategy level1logic=new Level1 () ;
+	
+	  public viewmanager() {
 		mainPane = new AnchorPane();
-	    String mainPanestyle= "-fx-background-image: url('file:/C:/Users/SPIDER/Desktop/backgroundlevels.png');" ;
+	    String mainPanestyle= "-fx-background-image: url('file:/C:/Users/Fujitsu/Desktop/backgroundlevels.png');" ;
 	    mainPane.setStyle(mainPanestyle);
 		mainScene= new Scene(mainPane,800,600);
 		mainStage=new Stage();
@@ -56,8 +64,12 @@ public class viewmanager {
 		v.getChildren().add(button2);
 		v.getChildren().add(button3);
 		v.getChildren().add(button4);
+		
 		button2.setOnAction(m->{
-			level1 Level1=new level1();
+			game=new Game();
+			game.newGame(level1logic);
+			
+			level1 Level1=new level1(game.getCrossersOnRightBank() , game);
 			Level1.createlevel1(mainStage);
 			
        	 //creditssub.moveSubscene();

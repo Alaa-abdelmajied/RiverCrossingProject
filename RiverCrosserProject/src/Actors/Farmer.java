@@ -1,6 +1,10 @@
 package Actors;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public class Farmer implements ICrosserModified {
 
@@ -21,8 +25,16 @@ public class Farmer implements ICrosserModified {
 
 	@Override
 	public BufferedImage[] getImages() {
-		// TODO Auto-generated method stub
-		return null;
+		BufferedImage[] bufferedImages = new BufferedImage[1];
+		 File initialImage = new File("C://Users/Fujitsu/Desktop/farmer.png");
+		 try {
+			bufferedImages[0] = ImageIO.read(initialImage);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return bufferedImages;
 	}
 
 	@Override

@@ -12,17 +12,7 @@ import Actors.ActorFactory;
 
 public class Level1 implements ICrossingStrategy {
 
-	/*
-	 * Attributes
-	 */
-
-	/*
-	 * Getters and setters
-	 */
-
-	/*
-	 * Behavior
-	 */
+	
 
 	@Override
 	public boolean isValid(List<ICrosser> rightBankCrossers, List<ICrosser> leftBankCrossers,

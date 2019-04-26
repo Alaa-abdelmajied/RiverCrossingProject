@@ -1,4 +1,6 @@
 package model;
+import Actors.Herbivorous;
+import Actors.ICrosser;
 import javafx.animation.TranslateTransition;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -16,14 +18,15 @@ import javafx.util.Duration;
 public class goatsubscene extends SubScene{
 
 	private String Font_Path="src/model/resources/kenvector_future.ttf";
-	private String backimage="file:/C:/Users/SPIDER/Desktop/goat.png";
+	private String backimage="file:/C:/Users/Fujitsu/Desktop/goat.png";
 private  boolean ishidden;
 int x=0;double z;
 fxxsubscene boat;
 TranslateTransition transition ;
 double orgSceneX, orgSceneY;
 double orgTranslateX, orgTranslateY;
-public goatsubscene() {
+//ICrosser goat = new Herbivorous();
+public goatsubscene(ICrosser goat) {
 	
 	super(new AnchorPane(), 600, 400);
 	int x=0;

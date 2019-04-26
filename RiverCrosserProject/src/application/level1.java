@@ -3,6 +3,8 @@ package application;
 import java.awt.List;
 import java.util.ArrayList;
 
+import Actors.ICrosser;
+import GameEngine.Game;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -28,17 +30,17 @@ private Stage level1Stage;
  private farmer_subscene farmer;
  private wolfsubscene wolf;
  private plantsubscene plant;
- ArrayList<Integer> crossers = new ArrayList<Integer>();
+  java.util.List<ICrosser>  crossers = new ArrayList<ICrosser>();
 public void createsubscene() {
 	creditssub=new fxxsubscene();
 	mainPane.getChildren().add(creditssub);
-	goat=new goatsubscene();
+	goat=new goatsubscene(crossers.get(2));
 	mainPane.getChildren().add(goat);
-	farmer=new farmer_subscene();
+	farmer=new farmer_subscene(crossers.get(0));
 	mainPane.getChildren().add(farmer);
-	wolf=new wolfsubscene();
+	wolf=new wolfsubscene(crossers.get(1));
 	mainPane.getChildren().add(wolf);
-	plant=new plantsubscene();
+	plant=new plantsubscene(crossers.get(3));
 	mainPane.getChildren().add(plant);
 
 
@@ -64,10 +66,12 @@ public void createlevel1(Stage menustage) {
 
 
 
-	public level1() {
+	public level1(java.util.List<ICrosser> crossers , Game game) {
+		this.crossers=crossers;
+		System.out.println("ssssss"+this.crossers.get(0));
 		x=new viewmanager();
 		mainPane = new AnchorPane();
-		String	mainPanestyle= "-fx-background-image: url('file:/C:/Users/SPIDER/Desktop/backgrounfinal.jpeg');" ;
+		String	mainPanestyle= "-fx-background-image: url('file:/C:/Users/Fujitsu/Desktop/backgrounfinal.jpeg');" ;
 		mainPane.setStyle(mainPanestyle);
 	level1Scene= new Scene(mainPane,800,600);
 	level1Stage=new Stage();
@@ -86,21 +90,38 @@ public void createlevel1(Stage menustage) {
 	    
 	
 	button1.setOnAction(m->{
+		ArrayList<ICrosser> crossersOnBoat = new ArrayList<>();
 		if((creditssub.getTranslateX()>-430)||(creditssub.getTranslateX()<-537)) {
-			if((goat.getTranslateX()<-318&&goat.getTranslateX()>-430)^(goat.getTranslateX()<-537&&goat.getTranslateX()>-655 )) {crossers.add(0);}
-			if((farmer.getTranslateX()<-318&&farmer.getTranslateX()>-430)^(farmer.getTranslateX()<-537&&farmer.getTranslateX()>-655 )) {crossers.add(1);}
-			if((plant.getTranslateX()<-318&&plant.getTranslateX()>-430)^(plant.getTranslateX()<-537&&plant.getTranslateX()>-655 )) {crossers.add(2);}
-			if((wolf.getTranslateX()<-318&&wolf.getTranslateX()>-430)^(wolf.getTranslateX()<-537&&wolf.getTranslateX()>-655 )) {crossers.add(3);}
+			if((goat.getTranslateX()<-318&&goat.getTranslateX()>-430)^(goat.getTranslateX()<-537&&goat.getTranslateX()>-655 )) {crossersOnBoat.add(crossers.get(2));
+				}
+			}
+			if((farmer.getTranslateX()<-318&&farmer.getTranslateX()>-430)^(farmer.getTranslateX()<-537&&farmer.getTranslateX()>-655 )) {crossersOnBoat.add(crossers.get(0));
+				}
+			
+			if((plant.getTranslateX()<-318&&plant.getTranslateX()>-430)^(plant.getTranslateX()<-537&&plant.getTranslateX()>-655 )) {crossersOnBoat.add(crossers.get(3));
+				
+			}
+			if((wolf.getTranslateX()<-318&&wolf.getTranslateX()>-430)^(wolf.getTranslateX()<-537&&wolf.getTranslateX()>-655 )) {crossersOnBoat.add(crossers.get(1));
+				
+			}
+			
+		
 
 			
+		if(game.canMove(crossersOnBoat, true)) {
+			//System.out.println(crossersOnBoat.get(1));
+			System.out.println(crossersOnBoat.get(0));
 			
-		}
+			System.out.println(game.getCrossersOnRightBank().get(0));
+			System.out.println(game.getCrossersOnRightBank().get(1));
+			System.out.println(game.getCrossersOnRightBank().get(2));
+			System.out.println(game.getCrossersOnRightBank().get(3));
   		
+		//game.doMove(crossersOnBoat, true);
 		
-		
-		if(((goat.getTranslateX()<-318&&goat.getTranslateX()>-430 )^(wolf.getTranslateX()<-318&&wolf.getTranslateX()>-430 )^(plant.getTranslateX()<-318&&plant.getTranslateX()>-430 ))) {
-			boolean k=  creditssub.moveSubscene();
-			goat.moveSubscene(k);
+	if(((goat.getTranslateX()<-318&&goat.getTranslateX()>-430 )^(wolf.getTranslateX()<-318&&wolf.getTranslateX()>-430 )^(plant.getTranslateX()<-318&&plant.getTranslateX()>-430 ))) {
+	boolean k=  creditssub.moveSubscene();
+	goat.moveSubscene(k);
    	farmer.moveSubscene(k);
    	wolf.moveSubscene(k);
    	plant.moveSubscene(k);}
@@ -122,7 +143,7 @@ public void createlevel1(Stage menustage) {
 	wolf.moveSubscene(k);
 	plant.moveSubscene(k);}
    	 
-   	 
+		}
    	// }
    	 
 	});

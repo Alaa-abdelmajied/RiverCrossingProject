@@ -1,7 +1,11 @@
 package model;
 
+import Actors.ActorFactory;
+import Actors.Farmer;
+import Actors.ICrosser;
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -17,7 +21,7 @@ import javafx.util.Duration;
 
 public class farmer_subscene extends SubScene {
 	private String Font_Path="src/model/resources/kenvector_future.ttf";
-	private String backimage="file:/C:/Users/SPIDER/Desktop/farmer.png";
+	private String backimage="file:/C:/Users/Fujitsu/Desktop/farmer.png";
 private  boolean ishidden;
 int x=0;double z;
 fxxsubscene boat;
@@ -26,10 +30,15 @@ double orgSceneX, orgSceneY;
 double orgTranslateX, orgTranslateY;
 boolean farmeronboat;
 goatsubscene goat;
-	public farmer_subscene() {
-		
+//ActorFactory factory = new ActorFactory();
 
+//ICrosser farmer = factory.getcrosser("farmer");
+	public farmer_subscene(ICrosser farmer) {
+	
 		super(new AnchorPane(), 50, 50);
+		//Image image=SwingFXUtils.toFXImage(farmer.getImages()[0], null);
+	//	this.farmer=farmer;
+		System.out.println("rrrrrr"+farmer);
 		farmeronboat=true;
 		int x=0;
 		prefWidth(600);
@@ -42,7 +51,7 @@ goatsubscene goat;
 	}
 	public void moveSubscene(boolean k) {
 		
-farmeronboat=true;goat=new goatsubscene();
+farmeronboat=true;//goat=new goatsubscene();
 
 		transition =new TranslateTransition();
 		transition.setDuration(Duration.seconds(0.95));
@@ -134,7 +143,6 @@ farmeronboat=true;goat=new goatsubscene();
 	public void setFarmeronboat(boolean farmeronboat) {
 		this.farmeronboat = farmeronboat;
 	}
-	
 	
 
 }
