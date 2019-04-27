@@ -73,8 +73,8 @@ public void moveSubscene(boolean k) {
 
 				
 		
-		System.out.println(z);
-		 System.out.println(k);
+		//System.out.println(z);
+		 //System.out.println(k);
 		transition.play();
 	   
 

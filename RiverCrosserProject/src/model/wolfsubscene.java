@@ -73,8 +73,8 @@ double orgTranslateX, orgTranslateY;
 
 				
 		
-		System.out.println(z);
-		 System.out.println(k);
+		//System.out.println(z);
+		 //System.out.println(k);
 		transition.play();
 	   
 

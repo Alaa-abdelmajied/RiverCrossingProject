@@ -89,8 +89,8 @@ farmeronboat=true;//goat=new goatsubscene();
 	    else if(z<-540&&z>-660) {farmeronboat=true;setFarmeronboat(true);}//boat.k=true;}
 	 //   else {farmeronboat=false;setFarmeronboat(false);}
 		
-		System.out.println(z);
-		 System.out.println(k);
+		//System.out.println(z);
+		 //System.out.println(k);
 		transition.play();
 	   
 
