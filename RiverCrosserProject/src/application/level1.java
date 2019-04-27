@@ -94,7 +94,7 @@ public class level1 {
 		mainPane.getChildren().add(h);
 		
 		v.setLayoutX(350);
-		v.setLayoutY(00);
+		v.setLayoutY(50);
 
 		button1.setOnAction(m -> {
 			boolean goatonboat = false;
