@@ -41,10 +41,9 @@ public class FileReaderUtils {
 					System.out.println("left:" + eElement.getElementsByTagName("left").item(0).getTextContent());
 					System.out.println("right:" + eElement.getElementsByTagName("right").item(0).getTextContent());
 					System.out.println("boat:" + eElement.getElementsByTagName("boat").item(0).getTextContent());
-					// System.out.println("Number of moves = " +
-					// eElement.getElementsByTagName("numberOfMoves=").item(0).getTextContent());
 					System.out.println("Boat at the left"
 							+ eElement.getElementsByTagName("boatAtTheLeft").item(0).getTextContent());
+					System.out.println("moves:" + eElement.getElementsByTagName("moves").item(0).getTextContent());
 
 				}
 			}

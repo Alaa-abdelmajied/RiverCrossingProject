@@ -40,7 +40,7 @@ public void moveSubscene(boolean k) {
 		
 
 		transition =new TranslateTransition();
-		transition.setDuration(Duration.seconds(0.95));
+		transition.setDuration(Duration.seconds(2.95));
 		transition.setNode(this);
 		boat=new fxxsubscene();
 		setOnMousePressed(circleOnMousePressedEventHandler);

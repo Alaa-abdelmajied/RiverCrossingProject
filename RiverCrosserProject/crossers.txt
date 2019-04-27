@@ -4,5 +4,6 @@
 	<right>  herbivorous </right>
 	<boat>  farmer </boat>
 	<boatAtTheLeft> true </boatAtTheLeft>
+	<moves> 4 </moves>
 </ICrossers>
 	

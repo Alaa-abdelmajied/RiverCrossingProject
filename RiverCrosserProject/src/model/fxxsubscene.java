@@ -44,7 +44,7 @@ TranslateTransition transition;
 		
 		//farmer=new farmer_subscene();
 		 transition =new TranslateTransition();
-		transition.setDuration(Duration.seconds(1));
+		transition.setDuration(Duration.seconds(3));
 		transition.setNode(this);
 		if(x==1) {
 		transition.setToX(-635);y=transition.getToX();ishidden=false;x=0;

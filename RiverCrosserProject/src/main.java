@@ -18,23 +18,23 @@ public class main {
 
 	public static void main(String[] args) {
 		
-		List <ICrosser> boat =new ArrayList <ICrosser>();
+		/*List <ICrosser> boat =new ArrayList <ICrosser>();
 		List <ICrosser> right =new ArrayList <ICrosser>();
 		List <ICrosser> left =new ArrayList <ICrosser>();
 		Level level = new Level (new Level2());
-		//right=level.getInitialCrossers();
+		right=level.getInitialCrossers();
 		
-		/*ICrosser farmer1 = new Farmer();
+		ICrosser farmer1 = new Farmer();
 		ICrosser farmer2 = new Farmer();
 		ICrosser goat = new Herbivorous();
 		ICrosser farmer3 = new Farmer();
-		ICrosser farmer4 = new Farmer();*/
+		ICrosser farmer4 = new Farmer();
 		Farmer farmer1 = new Farmer ();
 		farmer1.setWeight(90);
 		Farmer farmer2 = new Farmer ();
 		farmer2.setWeight(80);
 		Farmer farmer3 = new Farmer ();
-		//farmer3.setWeight(60);
+		farmer3.setWeight(60);
 		Farmer farmer4 = new Farmer ();
 		farmer4.setWeight(40);
 		
@@ -44,13 +44,13 @@ public class main {
 		plant.setWeight(20);
 		
 		boat.add(farmer3);
-		//boat.add(farmer4);
+		boat.add(farmer4);
 
-		/*right.add(plant);
+		right.add(plant);
 		left.add(farmer3);
 		left.add(farmer4);
 
-		left.add(farmer2);*/
+		left.add(farmer2);
 
 		//boolean x = level.isValid(right,left,boat);
 		
@@ -60,7 +60,7 @@ public class main {
 		game.newGame(level1);
 		//System.out.println(game.canMove(boat, false ));
 		System.out.println(game.canMove(boat, false ));
-		game.doMove(boat, false);
+		game.doMove(boat, false);*/
 		FileReaderUtils fileReaderUtils = new FileReaderUtils();
 		fileReaderUtils.read();
 		//game.doMove(boat, true);
