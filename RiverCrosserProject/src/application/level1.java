@@ -116,10 +116,12 @@ public class level1 {
 				// crossersOnBoat.add(crossers.get(1));
 				wolfonboat = true;
 			}
+			if(game.isBoatOnTheLeftBank()==false) {
 
 			if (farmeronboat == true) {
+				System.out.println(crossers.size());
 				for (int j = 0; j < crossers.size(); j++) {
-					if (crossers.get(j) instanceof Farmer)
+					if (crossers.get(j) instanceof Farmer) 
 						crossersOnBoat.add(crossers.get(j));
 				}
 			}
@@ -143,7 +145,39 @@ public class level1 {
 					if (crossers.get(j) instanceof Plant)
 						crossersOnBoat.add(crossers.get(j));
 				}
+			}}
+			else
+			{
+				if (farmeronboat == true) {
+					System.out.println(game.getCrossersOnLeftBank().size());
+					for (int j = 0; j < game.getCrossersOnLeftBank().size(); j++) {
+						if (game.getCrossersOnLeftBank().get(j) instanceof Farmer) 
+							crossersOnBoat.add(game.getCrossersOnLeftBank().get(j));
+					}
+				}
+
+				if (goatonboat == true) {
+					for (int j = 0; j < game.getCrossersOnLeftBank().size(); j++) {
+						if (game.getCrossersOnLeftBank().get(j) instanceof Herbivorous)
+							crossersOnBoat.add(game.getCrossersOnLeftBank().get(j));
+					}
+				}
+
+				if (wolfonboat == true) {
+					for (int j = 0; j < game.getCrossersOnLeftBank().size(); j++) {
+						if (game.getCrossersOnLeftBank().get(j) instanceof Carnivorous)
+							crossersOnBoat.add(game.getCrossersOnLeftBank().get(j));
+					}
+				}
+
+				if (plantonboat == true) {
+					for (int j = 0; j < game.getCrossersOnLeftBank().size(); j++) {
+						if (game.getCrossersOnLeftBank().get(j) instanceof Plant)
+							crossersOnBoat.add(game.getCrossersOnLeftBank().get(j));
+					}
+				}	
 			}
+			
 
 			for (int i = 0; i < crossersOnBoat.size(); i++)
 				System.out.println("on boat gui" + crossersOnBoat.get(i));
@@ -160,40 +194,18 @@ public class level1 {
 
 				game.doMove(crossersOnBoat, game.isBoatOnTheLeftBank());
 
-				if (((goat.getTranslateX() < -318 && goat.getTranslateX() > -430)
-						^ (wolf.getTranslateX() < -318 && wolf.getTranslateX() > -430)
-						^ (plant.getTranslateX() < -318 && plant.getTranslateX() > -430))) {
+			
 					boolean k = creditssub.moveSubscene();
 					goat.moveSubscene(k);
 					farmer.moveSubscene(k);
 					wolf.moveSubscene(k);
 					plant.moveSubscene(k);
-				}
+				
 
 				// System.out.println("the is at"+goat.getTranslateX());
 				// if(goat.getx()==2) {
 				// goat.moveSubscene();
-				if (((goat.getTranslateX() < -537 && goat.getTranslateX() > -655)
-						^ (wolf.getTranslateX() < -537 && wolf.getTranslateX() > -655)
-						^ (plant.getTranslateX() < -537 && plant.getTranslateX() > -655))) {
-					boolean k = creditssub.moveSubscene();
-					goat.moveSubscene(k);
-					farmer.moveSubscene(k);
-					wolf.moveSubscene(k);
-					plant.moveSubscene(k);
-				}
-
-				if (!((goat.getTranslateX() < -537 && goat.getTranslateX() > -655)
-						^ (wolf.getTranslateX() < -537 && wolf.getTranslateX() > -655)
-						^ (plant.getTranslateX() < -537 && plant.getTranslateX() > -655))
-						&& (farmer.getTranslateX() < -537 && farmer.getTranslateX() > -655)) {
-					boolean k = creditssub.moveSubscene();
-					goat.moveSubscene(k);
-					farmer.moveSubscene(k);
-					wolf.moveSubscene(k);
-					plant.moveSubscene(k);
-				}
-
+				
 			}
 			// }
 
