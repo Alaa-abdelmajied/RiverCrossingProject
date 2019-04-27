@@ -18,9 +18,9 @@ public class Game implements IRiverCrossingController {
 	private ICrossingStrategy gameStrategy;
 	private boolean isBoatOnTheLeftBank = false;
 	private int numberOfSails = 0;
-	List <List> state = new ArrayList <>();
-	Stack<List> undo = new Stack<List> ();
-	Stack<List> redo = new Stack<List> ();
+	List <List<ICrosser>> state = new ArrayList <>();
+	Stack<List<List<ICrosser>>> undo = new Stack<> ();
+	Stack<List<List<ICrosser>>> redo = new Stack<> ();
 	viewmanager obj= new viewmanager();
 
 	
@@ -193,7 +193,6 @@ public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
 		else
 			isBoatOnTheLeftBank=true;
 	//}
-	numberOfSails++;
 	state.add(CrossersOnLeftBank);
 	state.add(crossers);
 	state.add(CrossersOnRightBank);
@@ -217,7 +216,7 @@ public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
 
 	@Override
 	public void undo() {
-		List<List> undoArray =new ArrayList<List>();
+		List<List<ICrosser>> undoArray =new ArrayList<List<ICrosser>>();
 		undoArray=undo.pop();
 		redo.push(undoArray);
 		CrossersOnLeftBank=undoArray.get(0);
@@ -230,7 +229,7 @@ public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
 
 	@Override
 	public void redo() {
-		List<List> redoArray =new ArrayList<List>();
+		List<List<ICrosser>> redoArray =new ArrayList<List<ICrosser>>();
 		redoArray=redo.pop();
 		undo.push(redoArray);
 		CrossersOnLeftBank=redoArray.get(0);
