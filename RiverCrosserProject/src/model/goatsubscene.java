@@ -18,7 +18,7 @@ import javafx.util.Duration;
 public class goatsubscene extends SubScene{
 
 	private String Font_Path="src/model/resources/kenvector_future.ttf";
-	private String backimage="file:/C:/Users/Fujitsu/Desktop/goat.png";
+	private String backimage="file:goat.png";
 private  boolean ishidden;
 int x=0;double z;
 fxxsubscene boat;

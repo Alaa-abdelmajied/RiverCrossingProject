@@ -16,7 +16,7 @@ public class Game implements IRiverCrossingController {
 	//private List<ICrosser> CrossersOnRightBankCopy = new ArrayList<ICrosser>();
 	private List<ICrosser> Crossers = new ArrayList<ICrosser>();
 	private ICrossingStrategy gameStrategy;
-	//private boolean isBoatOnTheLeftBank = false;
+	private boolean isBoatOnTheLeftBank = false;
 	private int numberOfSails = 0;
 	List <List> state = new ArrayList <>();
 	Stack<List> undo = new Stack<List> ();
@@ -62,20 +62,20 @@ public class Game implements IRiverCrossingController {
 		return CrossersOnLeftBank;
 	}
 	// adema
-	/*@Override
-	public boolean isBoatOnTheLeftBank() {
-		return isBoatOnTheLeftBank;
-	}*/
-
 	@Override
 	public boolean isBoatOnTheLeftBank() {
+		return isBoatOnTheLeftBank;
+	}
+
+//	@Override
+/*	public boolean isBoatOnTheLeftBank() {
 		if(numberOfSails%2==0)
 		{
 			return false;
 		}
 		return true;
 		//return isBoatOnTheLeftBank;
-	}
+	}*/
 
 	@Override
 	public int getNumberOfSails() {
@@ -111,6 +111,7 @@ public class Game implements IRiverCrossingController {
 	}*/
 @Override
 public boolean canMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
+	System.out.println("makan el boat "+fromLeftToRightBank);
 	if (fromLeftToRightBank==false)
 	{	for(int i = 0; i <crossers.size();i++)
 		getCrossersOnRightBank().remove(crossers.get(i));
@@ -137,6 +138,7 @@ public boolean canMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
 	}
 		return true ;
 }
+
 //adema 
 	/*@Override
 	public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
@@ -173,17 +175,30 @@ public boolean canMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
 	}*/
 @Override
 public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
-	//if(fromLeftToRightBank==false)
-	//{	for(int i = 0 ;i<crossers.size();i++)
-		getCrossersOnLeftBank().add(crossers.get(0));
+	if(fromLeftToRightBank==false)
+	{
+	   for(int i = 0 ;i<crossers.size();i++)
+		getCrossersOnLeftBank().add(crossers.get(i));
 
-	//}
-	//else 
-	//{	for(int i = 0 ;i<crossers.size();i++)
+	}
+	else 
+	{	
+		for(int i = 0 ;i<crossers.size();i++)
+	
 
-		getCrossersOnRightBank().add(crossers.get(0));
+		getCrossersOnRightBank().add(crossers.get(i));
+	}
+		if(isBoatOnTheLeftBank==true)
+			isBoatOnTheLeftBank=false;
+		else
+			isBoatOnTheLeftBank=true;
 	//}
 	numberOfSails++;
+	state.add(CrossersOnLeftBank);
+	state.add(crossers);
+	state.add(CrossersOnRightBank);
+	undo.push(state);
+	numberOfSails ++;
 }
 
 	@Override

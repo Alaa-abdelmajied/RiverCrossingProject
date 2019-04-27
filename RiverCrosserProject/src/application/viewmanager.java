@@ -26,7 +26,7 @@ public class viewmanager {
 	
 	  public viewmanager() {
 		mainPane = new AnchorPane();
-	    String mainPanestyle= "-fx-background-image: url('file:/C:/Users/Fujitsu/Desktop/backgroundlevels.png');" ;
+	    String mainPanestyle= "-fx-background-image: url('file:backgroundlevels.png');" ;
 	    mainPane.setStyle(mainPanestyle);
 		mainScene= new Scene(mainPane,800,600);
 		mainStage=new Stage();

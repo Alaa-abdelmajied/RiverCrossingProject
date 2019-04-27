@@ -21,7 +21,7 @@ import javafx.util.Duration;
 
 public class farmer_subscene extends SubScene {
 	private String Font_Path="src/model/resources/kenvector_future.ttf";
-	private String backimage="file:/C:/Users/Fujitsu/Desktop/farmer.png";
+	private String backimage="file:farmer.png";
 private  boolean ishidden;
 int x=0;double z;
 fxxsubscene boat;
@@ -57,8 +57,8 @@ farmeronboat=true;//goat=new goatsubscene();
 		transition.setDuration(Duration.seconds(0.95));
 		transition.setNode(this);
 		boat=new fxxsubscene();
-		//setOnMousePressed(circleOnMousePressedEventHandler);
-	    //setOnMouseDragged(circleOnMouseDraggedEventHandler);
+		setOnMousePressed(circleOnMousePressedEventHandler);
+	    setOnMouseDragged(circleOnMouseDraggedEventHandler);
 		
 		
 		if(x==0) {	// System.out.println(k);
@@ -85,8 +85,8 @@ farmeronboat=true;//goat=new goatsubscene();
 			z=transition.getToX();}
 		
 
-		if(z<-318&&z>-430) {farmeronboat=true;setFarmeronboat(true);System.out.println("farmertrue");}//boat.k=true;}
-	    else if(z<-540&&z>-660) {farmeronboat=true;setFarmeronboat(true);}//boat.k=true;}
+		//if(z<-318&&z>-430) {farmeronboat=true;setFarmeronboat(true);System.out.println("farmertrue");}//boat.k=true;}
+	    //else if(z<-540&&z>-660) {farmeronboat=true;setFarmeronboat(true);}//boat.k=true;}
 	 //   else {farmeronboat=false;setFarmeronboat(false);}
 		
 		//System.out.println(z);
@@ -98,7 +98,7 @@ farmeronboat=true;//goat=new goatsubscene();
 		
 	}
 	public int getx() {return x;}
-	/*EventHandler<MouseEvent> circleOnMousePressedEventHandler = 
+	EventHandler<MouseEvent> circleOnMousePressedEventHandler = 
 	new EventHandler<MouseEvent>() {
 
 	@Override
@@ -120,7 +120,8 @@ farmeronboat=true;//goat=new goatsubscene();
 	    double offsetY = t.getSceneY() - orgSceneY;
 	    double newTranslateX = orgTranslateX + offsetX;
 	    double newTranslateY = orgTranslateY + offsetY;
-	     
+	    System.out.println("ofsset is"+offsetX);
+	     if((offsetX>-131)) {                //-545to-1040
 	    ((Node) t.getSource()).setTranslateX(newTranslateX);
 	    transition.setToX(newTranslateX);transition.setToY(newTranslateY);
 	    z=transition.getToX();
@@ -131,11 +132,24 @@ farmeronboat=true;//goat=new goatsubscene();
 	   transition.setToY(newTranslateY);
 	    ((Node) t.getSource()).setTranslateY(newTranslateY);
 	    if(y>43||y<-4) {transition.setToX(-300);transition.setToY(6);transition.play();z=transition.getToX();}
-	    if(z<-318&&z>-430) {farmeronboat=true;setFarmeronboat(true);}//boat.k=true;}
-	    else if(z<-540&&z>-660) {farmeronboat=true;setFarmeronboat(true);}//boat.k=true;}
-	    else {farmeronboat=false;setFarmeronboat(false);}
+	}else {transition.setToX(-300);transition.setToY(6);transition.play();z=transition.getToX();}
+	     
+	     
+	     System.out.println("ofsset is"+offsetX);
+	      if((offsetX<155)) {                //-545to-1040
+	     ((Node) t.getSource()).setTranslateX(newTranslateX);
+	     transition.setToX(newTranslateX);transition.setToY(newTranslateY);
+	     z=transition.getToX();
+	     double y=transition.getToY();
+	     System.out.println(" y="+y);
+	     
+	     System.out.println(z);
+	    transition.setToY(newTranslateY);
+	     ((Node) t.getSource()).setTranslateY(newTranslateY);
+	     if(y>43||y<-4) {transition.setToX(-300);transition.setToY(6);transition.play();z=transition.getToX();}
+	 }else {transition.setToX(-690);transition.setToY(6);transition.play();z=transition.getToX();}
 	}
-	};*/
+	};
 
 	public boolean isFarmeronboat() {
 		return farmeronboat;

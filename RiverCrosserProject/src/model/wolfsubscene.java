@@ -17,7 +17,7 @@ import javafx.util.Duration;
 
 public class wolfsubscene extends SubScene{
 	private String Font_Path="src/model/resources/kenvector_future.ttf";
-	private String backimage="file:/C:/Users/Fujitsu/Desktop/wolf.png";
+	private String backimage="file:wolf.png";
 private  boolean ishidden;
 int x=0;double z;
 fxxsubscene boat;

@@ -14,7 +14,7 @@ import javafx.util.Duration;
 
 public class fxxsubscene extends SubScene {
 	private String Font_Path="src/model/resources/kenvector_future.ttf";
-	private String backimage="file:/C:/Users/Fujitsu/Desktop/boat.png";
+	private String backimage="file:boat.png";
 private  boolean ishidden;
 TranslateTransition transition;
 	int x;
