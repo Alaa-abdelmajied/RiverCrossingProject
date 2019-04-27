@@ -11,9 +11,11 @@ import Actors.Plant;
 import GameEngine.Game;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.fxxxbutton;
+import model.Levelsbuttons;
 import model.farmer_subscene;
 //import model.resources.farmersubs;
 import model.fxxsubscene;
@@ -72,17 +74,27 @@ public class level1 {
 		level1Scene = new Scene(mainPane, 800, 600);
 		level1Stage = new Stage();
 		level1Stage.setScene(level1Scene);
-		fxxxbutton button1 = new fxxxbutton("GO!!");
-		fxxxbutton button2 = new fxxxbutton("goat");
+		Levelsbuttons button1 = new Levelsbuttons("GO!!");
+		Levelsbuttons button2 = new Levelsbuttons("goat");
+		Levelsbuttons button3 = new Levelsbuttons("undo");
+		Levelsbuttons button4 = new Levelsbuttons("redo");
 
 		VBox v = new VBox();
 		v.getChildren().add(button1);
-		v.getChildren().add(button2);
+		//v.getChildren().add(button2);
+		HBox h=new HBox();
+		h.getChildren().add(button3);
+		h.getChildren().add(button4);
+		h.setSpacing(600);
+		h.setLayoutX(0);
+		h.setLayoutY(0);
 
 		v.setSpacing(50);
 		mainPane.getChildren().add(v);
-		v.setLayoutX(300);
-		v.setLayoutY(50);
+		mainPane.getChildren().add(h);
+		
+		v.setLayoutX(350);
+		v.setLayoutY(00);
 
 		button1.setOnAction(m -> {
 			boolean goatonboat = false;
