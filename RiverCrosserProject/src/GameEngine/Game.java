@@ -320,7 +320,13 @@ public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
 		invoker.setCommand(undo);
 		invoker.pressButton();
 	}
-
+	
+	public void commandredo() {
+		Command redo = new RedoCommand(view.game);
+		invoker.setCommand(redo);
+		invoker.pressButton();
+	}
+	
 	@Override
 	public void saveGame() {
 

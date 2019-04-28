@@ -20,7 +20,7 @@ public class goatsubscene extends SubScene{
 	private String Font_Path="src/model/resources/kenvector_future.ttf";
 	private String backimage="file:goat.png";
 private  boolean ishidden;
-int x=0;double z;
+int x=0;public double y; double z;
 fxxsubscene boat;
 TranslateTransition transition ;
 double orgSceneX, orgSceneY;
@@ -50,9 +50,9 @@ public void moveSubscene(boolean k ) {
 	
 	
 	if(x==0&&k==false) {	// System.out.println(k);
-
+		//z=transition.getToX();
 		transition.setToX(-300);
-	     z=transition.getToX();
+		y=getTranslateX();
 
 		//ishidden=true;
 		
@@ -61,22 +61,52 @@ public void moveSubscene(boolean k ) {
 	}//left bank
 	else if((z<-335)&&(z>-442)&&k==true) {
 		// System.out.println(k);
-
-		transition.setToX(-650);
+		
+		transition.setToX(-650);z=transition.getToX();y=getTranslateX();
 		//ishidden=false;
-		z=transition.getToX();}
+		}
 	else if((z<-538)&&(z>-653)&&k==false) {
 		// System.out.println(k);
+		transition.setToX(-350);		z=transition.getToX();y=getTranslateX();
 
-		transition.setToX(-350);
 		//ishidden=false;
-		z=transition.getToX();}
+		}
 	
 
 			
 	
 	//System.out.println(z);
 	// System.out.println(k);
+	transition.play();
+	y=getTranslateX();
+	z=transition.getToX();
+
+	
+   
+
+	
+	
+}
+public void moveSubsceneundo(boolean k ) {
+	
+
+	transition =new TranslateTransition();
+	transition.setDuration(Duration.seconds(2.95));
+	transition.setNode(this);
+	//boat=new fxxsubscene();
+	
+	
+	
+	
+
+		transition.setToX(y);
+	     z=transition.getToX();
+
+		
+		
+		
+	
+	
 	transition.play();
    
 
