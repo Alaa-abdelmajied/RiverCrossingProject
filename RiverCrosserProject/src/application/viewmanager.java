@@ -23,7 +23,9 @@ public class viewmanager {
 	 private fxxsubscene creditssub;
 	 //ICrossingStrategy level1logic=new Level1 () ;
 	 fxxxbutton button2= new fxxxbutton("Level 1");
-	 public Game game;
+	 
+
+	public Game game;
 
 		 /*public Game getGame() {
 			return game;
@@ -51,6 +53,12 @@ public class viewmanager {
 		
 		
 	}
+	
+	 
+	 public fxxxbutton getButton2() {
+		return button2;
+	}
+
 	
 	public Stage getMainStage() {
 		return mainStage;

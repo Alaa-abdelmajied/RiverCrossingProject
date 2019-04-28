@@ -282,11 +282,13 @@ if((this.crossersOnBoat.get(i) instanceof Plant)&&game.isBoatOnTheLeftBank()==fa
 		
 		});
 
-		// button2.setOnAction(m->{
+		 button5.setOnAction(m->{
+			 
+			 level1Stage.close();
+			 game.resetGame();
+			 System.out.println(game.numberOfSails);
 
-		// goat.moveSubscene();
-
-		// });
+		 });
 
 		createsubscene();
 		boolean k = creditssub.moveSubscene();
