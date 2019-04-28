@@ -85,6 +85,18 @@ public class viewmanager {
        //	 level1.getMainStage();
        	 
 			});
+		button3.setOnAction(m->{
+			//game=new Game();
+		//	game.newGame(level1logic);
+			game.newGame(game.getLevel2logic());
+			//game.newGame(game.getLevel1logic());
+			level2 Level2=new level2(game.getCrossersOnRightBank() , game);
+			Level2.createlevel2(mainStage);
+			
+       	 //creditssub.moveSubscene();
+       //	 level1.getMainStage();
+       	 
+			});
 
 		v.setSpacing(50);
 		mainPane.getChildren().add(v);
