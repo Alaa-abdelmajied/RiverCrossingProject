@@ -3,7 +3,7 @@ package GameEngine;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-
+import LevelCreater.Level2;
 import Actors.ICrosser;
 import LevelCreater.ICrossingStrategy;
 import LevelCreater.Level1;
@@ -19,13 +19,27 @@ public class Game implements IRiverCrossingController {
 	private ICrossingStrategy gameStrategy;
 	private boolean isBoatOnTheLeftBank = false;
 	private int numberOfSails = 0;
-	List <List<ICrosser>> state = new ArrayList <>();
+//	List <List<ICrosser>> state = new ArrayList <>();
 	Stack<List<List<ICrosser>>> undo = new Stack<> ();
 	Stack<List<List<ICrosser>>> redo = new Stack<> ();
 	viewmanager obj= new viewmanager();
     //ArrayList<List> undoredo = new ArrayList<List>();
     int cnt =0;
+	private viewmanager view = new viewmanager();
 	private ICrossingStrategy level1logic=new Level1 () ;
+	private ICrossingStrategy level2logic=new Level2 () ;
+	private Invoker invoker= new Invoker();
+	
+	
+	public void setview (viewmanager view) {
+		this.view=view;
+	}
+
+
+
+	public ICrossingStrategy getLevel2logic() {
+		return level2logic;
+	}
 	
 	
 
@@ -200,6 +214,8 @@ public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
 		else
 			isBoatOnTheLeftBank=true;
 	//}
+		List <List<ICrosser>> state = new ArrayList <>();
+
 	state.add(CrossersOnLeftBank);
 	state.add(crossers);
 	state.add(CrossersOnRightBank);
@@ -258,13 +274,16 @@ public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
 		Crossers=redoArray.get(1);
 		CrossersOnRightBank=redoArray.get(2);
 		numberOfSails ++;
-
-	}
-	public void updateplaceofboat () {
 		if(isBoatOnTheLeftBank==true)
 			isBoatOnTheLeftBank=false;
 		else
 			isBoatOnTheLeftBank=true;
+	}
+	
+	public void commandundo() {
+		Command undo = new UndoCommand(view.game);
+		invoker.setCommand(undo);
+		invoker.pressButton();
 	}
 
 	@Override

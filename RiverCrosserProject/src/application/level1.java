@@ -230,9 +230,11 @@ viewmanager fring=new viewmanager();
 		
 		button3.setOnAction(m -> {
 			if(game.canUndo()) {
-			game.undo();
+				//game.undo();
+				game.commandundo();
 			this.crossers = game.getCrossers();
 			System.out.println("print for undo "+game.isBoatOnTheLeftBank());
+			System.out.println("size of crossers undo gui "+this.crossers.size());
 			creditssub.moveSubscene();
 			for(int i=0;i<this.crossers.size();i++) {
 if((this.crossers.get(i) instanceof Farmer)&&game.isBoatOnTheLeftBank()==true){farmer.moveSubscene(game.isBoatOnTheLeftBank());}

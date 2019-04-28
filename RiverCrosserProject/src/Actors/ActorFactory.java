@@ -12,7 +12,7 @@ public class ActorFactory {
 			return new Carnivorous();
 		
 		else if (crosserType.equalsIgnoreCase("plant"))
-			return new Plant ();
+			return Plant.getInstance();
 		return null;
 	}
 

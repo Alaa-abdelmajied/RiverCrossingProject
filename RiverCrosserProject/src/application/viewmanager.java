@@ -21,9 +21,16 @@ public class viewmanager {
 	private Scene mainScene;
 	private Stage mainStage;
 	 private fxxsubscene creditssub;
-	 Game game;
-	 ICrossingStrategy level1logic=new Level1 () ;
+	 //ICrossingStrategy level1logic=new Level1 () ;
 	 fxxxbutton button2= new fxxxbutton("Level 1");
+	 public Game game;
+
+		// public Game getGame() {
+			//return game;
+		//}
+			public void setgame (Game game) {
+				this.game=game;
+			}
 	
 	  public viewmanager() {
 		mainPane = new AnchorPane();
@@ -67,8 +74,9 @@ public class viewmanager {
 		v.getChildren().add(button4);
 		
 		button2.setOnAction(m->{
-			game=new Game();
-			game.newGame(level1logic);
+			//game=new Game();
+		//	game.newGame(level1logic);
+			game.newGame(game.getLevel1logic());
 			//game.newGame(game.getLevel1logic());
 			level1 Level1=new level1(game.getCrossersOnRightBank() , game);
 			Level1.createlevel1(mainStage);

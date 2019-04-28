@@ -1,5 +1,6 @@
 package application;
 	
+import GameEngine.Game;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -11,6 +12,9 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			viewmanager manager=new viewmanager();
+			Game game = new Game ();
+			game.setview(manager);
+			manager.setgame(game);
 			primaryStage=manager.getMainStage();
 			primaryStage.show();
 		} catch(Exception e) {

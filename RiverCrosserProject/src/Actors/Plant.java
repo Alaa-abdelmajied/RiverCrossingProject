@@ -13,7 +13,19 @@ public class Plant implements ICrosserModified {
 	/*
 	 * Getters and setters
 	 */
+	private static Plant instance ;
 	
+	private Plant () {
+		
+	}
+	
+	public static Plant getInstance () {
+		if(instance == null) {
+			instance = new Plant ();
+		}
+		return instance;	
+
+	}
 	@Override
 	public int getEatingRank() {
 		return 0;
