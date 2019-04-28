@@ -10,6 +10,8 @@ import Actors.ICrosser;
 import Actors.Plant;
 import GameEngine.Game;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -98,7 +100,11 @@ viewmanager fring=new viewmanager();
 		
 		v.setLayoutX(350);
 		v.setLayoutY(50);
-
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Hello");
+		alert.setHeaderText("Instructions");
+		alert.setContentText(game.getLevel1logic().getInstructions()[0]+game.getLevel1logic().getInstructions()[1]+game.getLevel1logic().getInstructions()[2]);
+		alert.showAndWait();
 		button1.setOnAction(m -> {
 			boolean goatonboat = false;
 			boolean farmeronboat = false;
