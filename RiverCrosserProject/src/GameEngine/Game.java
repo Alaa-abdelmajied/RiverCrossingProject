@@ -218,6 +218,7 @@ public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
 		List <List<ICrosser>> state = new ArrayList <>();
 
 	state.add(CrossersOnLeftBank);
+	System.out.println("jjjjjj"+CrossersOnLeftBank.size());
 	state.add(this.Crossers);
 	state.add(CrossersOnRightBank);
 	undo.push(state);
@@ -252,13 +253,30 @@ public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
 		CrossersOnLeftBank=undoArray.get(0);
 		Crossers=undoArray.get(1);
 		CrossersOnRightBank=undoArray.get(2);
-		System.out.println("logic undo"+Crossers.size());
+		System.out.println("logic undo"+CrossersOnLeftBank.size());
+		if(isBoatOnTheLeftBank()) {
+			for(int i =0 ; i<this.Crossers.size(); i++)
+			{
+				CrossersOnRightBank.add(Crossers.get(i));
+				CrossersOnLeftBank.remove(Crossers.get(i));			
+				}
+		} 
+		else
+		{
+			for(int i =0 ; i<this.Crossers.size(); i++)
+			{
+				CrossersOnLeftBank.add(Crossers.get(i));
+				CrossersOnRightBank.remove(Crossers.get(i));			
+				}
+		}
 
 		numberOfSails ++;
 		if(isBoatOnTheLeftBank==true)
 			isBoatOnTheLeftBank=false;
 		else
 			isBoatOnTheLeftBank=true;
+		
+		
 
 
 	}
@@ -276,6 +294,21 @@ public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
 		Crossers=redoArray.get(1);
 		CrossersOnRightBank=redoArray.get(2);
 		numberOfSails ++;
+		if(isBoatOnTheLeftBank()) {
+			for(int i =0 ; i<this.Crossers.size(); i++)
+			{
+				CrossersOnRightBank.add(Crossers.get(i));
+				CrossersOnLeftBank.remove(Crossers.get(i));			
+				}
+		} 
+		else
+		{
+			for(int i =0 ; i<this.Crossers.size(); i++)
+			{
+				CrossersOnLeftBank.add(Crossers.get(i));
+				CrossersOnRightBank.remove(Crossers.get(i));			
+				}
+		}
 		if(isBoatOnTheLeftBank==true)
 			isBoatOnTheLeftBank=false;
 		else

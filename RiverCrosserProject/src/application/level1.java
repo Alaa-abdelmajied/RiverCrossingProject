@@ -253,6 +253,7 @@ if((this.crossersOnBoat.get(i) instanceof Plant)&&game.isBoatOnTheLeftBank()==tr
 if((this.crossersOnBoat.get(i) instanceof Plant)&&game.isBoatOnTheLeftBank()==false){plant.moveSubscene(game.isBoatOnTheLeftBank()); }
 }}		
 		
+		
 		});
 		button4.setOnAction(m -> {
 			level1Stage.close();
