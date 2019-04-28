@@ -74,12 +74,24 @@ public class viewmanager {
 		v.getChildren().add(button4);
 		
 		button2.setOnAction(m->{
-			//game=new Game();
+			game=new Game();
 		//	game.newGame(level1logic);
 			game.newGame(game.getLevel1logic());
 			//game.newGame(game.getLevel1logic());
 			level1 Level1=new level1(game.getCrossersOnRightBank() , game);
 			Level1.createlevel1(mainStage);
+			
+       	 //creditssub.moveSubscene();
+       //	 level1.getMainStage();
+       	 
+			});
+		button3.setOnAction(m->{
+			//game=new Game();
+		//	game.newGame(level1logic);
+			game.newGame(game.getLevel2logic());
+			//game.newGame(game.getLevel1logic());
+			level2 Level2=new level2(game.getCrossersOnRightBank() , game);
+			Level2.createlevel2(mainStage);
 			
        	 //creditssub.moveSubscene();
        //	 level1.getMainStage();
