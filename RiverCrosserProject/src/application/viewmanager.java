@@ -74,7 +74,7 @@ public class viewmanager {
 		v.getChildren().add(button4);
 		
 		button2.setOnAction(m->{
-			game=new Game();
+			//game=new Game();
 		//	game.newGame(level1logic);
 			game.newGame(game.getLevel1logic());
 			//game.newGame(game.getLevel1logic());
