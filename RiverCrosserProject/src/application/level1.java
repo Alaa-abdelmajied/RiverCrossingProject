@@ -78,6 +78,8 @@ viewmanager fring=new viewmanager();
 		Levelsbuttons button2 = new Levelsbuttons("goat");
 		Levelsbuttons button3 = new Levelsbuttons("undo");
 		Levelsbuttons button4 = new Levelsbuttons("redo");
+		Levelsbuttons button5 = new Levelsbuttons("reset");
+
 
 		VBox v = new VBox();
 		v.getChildren().add(button1);
@@ -85,7 +87,8 @@ viewmanager fring=new viewmanager();
 		HBox h=new HBox();
 		h.getChildren().add(button3);
 		h.getChildren().add(button4);
-		h.setSpacing(600);
+		h.getChildren().add(button5);
+		h.setSpacing(240);
 		h.setLayoutX(0);
 		h.setLayoutY(0);
 
