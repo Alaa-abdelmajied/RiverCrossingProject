@@ -61,7 +61,7 @@ farmeronboat=true;//goat=new goatsubscene();
 	    setOnMouseDragged(circleOnMouseDraggedEventHandler);
 		
 		
-		if(x==0) {	// System.out.println(k);
+		if(x==0&&k==false) {	// System.out.println(k);
 
 			transition.setToX(-400);
 		     z=transition.getToX();
@@ -72,25 +72,19 @@ farmeronboat=true;//goat=new goatsubscene();
 			x++;
 		}//left bank
 		else if((z<-335)&&(z>-442)&&k==true) {
-			// System.out.println(k);
 
 			transition.setToX(-560);
-			//ishidden=false;
+			
 			z=transition.getToX();}
 		else if((z<-538)&&(z>-653)&&k==false) {
-			// System.out.println(k);
+			
 
 			transition.setToX(-380);
-			//ishidden=false;
+			
 			z=transition.getToX();}
 		
 
-		//if(z<-318&&z>-430) {farmeronboat=true;setFarmeronboat(true);System.out.println("farmertrue");}//boat.k=true;}
-	    //else if(z<-540&&z>-660) {farmeronboat=true;setFarmeronboat(true);}//boat.k=true;}
-	 //   else {farmeronboat=false;setFarmeronboat(false);}
 		
-		//System.out.println(z);
-		 //System.out.println(k);
 		transition.play();
 	   
 

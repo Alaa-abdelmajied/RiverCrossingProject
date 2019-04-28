@@ -42,7 +42,7 @@ public class level1 {
 	private boolean plantonboat = false;
 	 ArrayList<ICrosser> crossersOnBoat = new ArrayList<>();
 	java.util.List<ICrosser> crossers = new ArrayList<ICrosser>();
-
+viewmanager fring=new viewmanager();
 	public void createsubscene() {
 		creditssub = new fxxsubscene();
 		mainPane.getChildren().add(creditssub);
@@ -209,10 +209,10 @@ public class level1 {
 
 			
 					boolean k = creditssub.moveSubscene();
-					goat.moveSubscene(k);
-					farmer.moveSubscene(k);
-					wolf.moveSubscene(k);
-					plant.moveSubscene(k);
+					goat.moveSubscene(game.isBoatOnTheLeftBank());
+					farmer.moveSubscene(game.isBoatOnTheLeftBank());
+					wolf.moveSubscene(game.isBoatOnTheLeftBank());
+					plant.moveSubscene(game.isBoatOnTheLeftBank());
 					//game.undo();
 					//this.crossers = game.getCrossers();
 					//System.out.println("hahahahah"+this.crossers.size());
@@ -222,7 +222,7 @@ public class level1 {
 				// System.out.println("the is at"+goat.getTranslateX());
 				// if(goat.getx()==2) {
 				// goat.moveSubscene();
-				
+					System.out.println("print for go "+game.isBoatOnTheLeftBank());
 			}
 			// }
 
@@ -232,8 +232,25 @@ public class level1 {
 			if(game.canUndo()) {
 			game.undo();
 			this.crossers = game.getCrossers();
-System.out.println(this.crossers.get(0));	
-}		
+			System.out.println("print for undo "+game.isBoatOnTheLeftBank());
+			creditssub.moveSubscene();
+			for(int i=0;i<this.crossers.size();i++) {
+if((this.crossers.get(i) instanceof Farmer)&&game.isBoatOnTheLeftBank()==true){farmer.moveSubscene(game.isBoatOnTheLeftBank());}
+if((this.crossers.get(i) instanceof Farmer)&&game.isBoatOnTheLeftBank()==false){farmer.moveSubscene(game.isBoatOnTheLeftBank()); }
+if((this.crossers.get(i) instanceof Herbivorous)&&game.isBoatOnTheLeftBank()==true){goat.moveSubscene(game.isBoatOnTheLeftBank()); }
+if((this.crossers.get(i) instanceof Herbivorous)&&game.isBoatOnTheLeftBank()==false){goat.moveSubscene(game.isBoatOnTheLeftBank()); }
+if((this.crossers.get(i) instanceof Carnivorous)&&game.isBoatOnTheLeftBank()==true){wolf.moveSubscene(game.isBoatOnTheLeftBank());}
+if((this.crossers.get(i) instanceof Carnivorous)&&game.isBoatOnTheLeftBank()==false){wolf.moveSubscene(game.isBoatOnTheLeftBank()); }
+if((this.crossers.get(i) instanceof Plant)&&game.isBoatOnTheLeftBank()==true){plant.moveSubscene(game.isBoatOnTheLeftBank()); }
+if((this.crossers.get(i) instanceof Plant)&&game.isBoatOnTheLeftBank()==false){plant.moveSubscene(game.isBoatOnTheLeftBank()); }
+}}		
+		
+		});
+		button4.setOnAction(m -> {
+			level1Stage.close();
+fring.button2.fire();
+					
+		
 		});
 
 		// button2.setOnAction(m->{
@@ -244,10 +261,10 @@ System.out.println(this.crossers.get(0));
 
 		createsubscene();
 		boolean k = creditssub.moveSubscene();
-		goat.moveSubscene(k);
-		farmer.moveSubscene(k);
-		wolf.moveSubscene(k);
-		plant.moveSubscene(k);
+		goat.moveSubscene(game.isBoatOnTheLeftBank());
+		farmer.moveSubscene(game.isBoatOnTheLeftBank());
+		wolf.moveSubscene(game.isBoatOnTheLeftBank());
+		plant.moveSubscene(game.isBoatOnTheLeftBank());
 
 	}
 

@@ -38,7 +38,7 @@ public goatsubscene(ICrosser goat) {
 	setLayoutX(1024);
 	setLayoutY(310);
 }
-public void moveSubscene(boolean k) {
+public void moveSubscene(boolean k ) {
 	
 
 	transition =new TranslateTransition();
@@ -49,7 +49,7 @@ public void moveSubscene(boolean k) {
     setOnMouseDragged(circleOnMouseDraggedEventHandler);
 	
 	
-	if(x==0) {	// System.out.println(k);
+	if(x==0&&k==false) {	// System.out.println(k);
 
 		transition.setToX(-300);
 	     z=transition.getToX();

@@ -47,7 +47,7 @@ double orgTranslateX, orgTranslateY;
 	    setOnMouseDragged(circleOnMouseDraggedEventHandler);
 		
 		
-		if(x==0) {	// System.out.println(k);
+	    if(x==0&&k==false) {	// System.out.println(k);
 
 			transition.setToX(-300);
 		     z=transition.getToX();

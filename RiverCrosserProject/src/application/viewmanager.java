@@ -23,6 +23,7 @@ public class viewmanager {
 	 private fxxsubscene creditssub;
 	 Game game;
 	 ICrossingStrategy level1logic=new Level1 () ;
+	 fxxxbutton button2= new fxxxbutton("Level 1");
 	
 	  public viewmanager() {
 		mainPane = new AnchorPane();
@@ -53,7 +54,7 @@ public class viewmanager {
 		
 		fxxxbutton button1= new fxxxbutton("CONTINUE");
 		//mainPane.getChildren().add(button1);
-		fxxxbutton button2= new fxxxbutton("Level 1");
+		//fxxxbutton button2= new fxxxbutton("Level 1");
 		fxxxbutton button3= new fxxxbutton("Level 2");
 
 		//mainPane.getChildren().add(button2);

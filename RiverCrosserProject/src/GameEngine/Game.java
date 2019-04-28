@@ -237,6 +237,10 @@ public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
 		//System.out.println("logic undo"+Crossers.size());
 		CrossersOnRightBank=undoArray.get(2);
 		numberOfSails ++;
+		if(isBoatOnTheLeftBank==true)
+			isBoatOnTheLeftBank=false;
+		else
+			isBoatOnTheLeftBank=true;
 
 
 	}
@@ -255,6 +259,12 @@ public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
 		CrossersOnRightBank=redoArray.get(2);
 		numberOfSails ++;
 
+	}
+	public void updateplaceofboat () {
+		if(isBoatOnTheLeftBank==true)
+			isBoatOnTheLeftBank=false;
+		else
+			isBoatOnTheLeftBank=true;
 	}
 
 	@Override
