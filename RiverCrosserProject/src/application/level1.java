@@ -40,7 +40,7 @@ public class level1 {
 	private boolean farmeronboat = false;
 	private boolean wolfonboat = false;
 	private boolean plantonboat = false;
-
+	 ArrayList<ICrosser> crossersOnBoat = new ArrayList<>();
 	java.util.List<ICrosser> crossers = new ArrayList<ICrosser>();
 
 	public void createsubscene() {
@@ -101,8 +101,9 @@ public class level1 {
 			boolean farmeronboat = false;
 			boolean wolfonboat = false;
 			boolean plantonboat = false;
+			 ArrayList<ICrosser> crossersOnBoat = new ArrayList<>();
 
-			ArrayList<ICrosser> crossersOnBoat = new ArrayList<>();
+			//ArrayList<ICrosser> crossersOnBoat = new ArrayList<>();
 			if ((creditssub.getTranslateX() > -430) || (creditssub.getTranslateX() < -537)) {
 				if ((goat.getTranslateX() < -318 && goat.getTranslateX() > -430)
 						^ (goat.getTranslateX() < -537 && goat.getTranslateX() > -655)) {
@@ -212,7 +213,11 @@ public class level1 {
 					farmer.moveSubscene(k);
 					wolf.moveSubscene(k);
 					plant.moveSubscene(k);
-				
+					//game.undo();
+					//this.crossers = game.getCrossers();
+					//System.out.println("hahahahah"+this.crossers.size());
+
+					//crossersOnBoat.clear();
 
 				// System.out.println("the is at"+goat.getTranslateX());
 				// if(goat.getx()==2) {
@@ -221,6 +226,14 @@ public class level1 {
 			}
 			// }
 
+		});
+		
+		button3.setOnAction(m -> {
+			if(game.canUndo()) {
+			game.undo();
+			this.crossers = game.getCrossers();
+System.out.println(this.crossers.get(0));	
+}		
 		});
 
 		// button2.setOnAction(m->{

@@ -68,7 +68,7 @@ public class viewmanager {
 		button2.setOnAction(m->{
 			game=new Game();
 			game.newGame(level1logic);
-			
+			//game.newGame(game.getLevel1logic());
 			level1 Level1=new level1(game.getCrossersOnRightBank() , game);
 			Level1.createlevel1(mainStage);
 			

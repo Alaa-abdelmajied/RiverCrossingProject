@@ -6,6 +6,7 @@ import java.util.Stack;
 
 import Actors.ICrosser;
 import LevelCreater.ICrossingStrategy;
+import LevelCreater.Level1;
 import application.level1;
 import application.viewmanager;
 
@@ -22,9 +23,15 @@ public class Game implements IRiverCrossingController {
 	Stack<List<List<ICrosser>>> undo = new Stack<> ();
 	Stack<List<List<ICrosser>>> redo = new Stack<> ();
 	viewmanager obj= new viewmanager();
+    //ArrayList<List> undoredo = new ArrayList<List>();
+    int cnt =0;
+	private ICrossingStrategy level1logic=new Level1 () ;
+	
+	
 
-	
-	
+	public ICrossingStrategy getLevel1logic() {
+		return level1logic;
+	}
 
 	@Override
 	public void newGame(ICrossingStrategy gameStrategy) {
@@ -197,6 +204,9 @@ public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
 	state.add(crossers);
 	state.add(CrossersOnRightBank);
 	undo.push(state);
+	//System.out.println("size of crossers in do move of undo"+crossers.size());
+	//System.out.println("size of undo"+undo.size());
+		//undoredo.add(crossers);
 	numberOfSails ++;
 }
 
@@ -218,21 +228,29 @@ public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
 	public void undo() {
 		List<List<ICrosser>> undoArray =new ArrayList<List<ICrosser>>();
 		undoArray=undo.pop();
+		//System.out.println("fwefwefw"+undoArray.size());
+		//System.out.println("fwefwefw22"+undo.pop().size());
+
 		redo.push(undoArray);
 		CrossersOnLeftBank=undoArray.get(0);
 		Crossers=undoArray.get(1);
+		//System.out.println("logic undo"+Crossers.size());
 		CrossersOnRightBank=undoArray.get(2);
 		numberOfSails ++;
 
 
 	}
-
+	/*@Override
+	public void undo()
+	{
+		
+	}*/
 	@Override
 	public void redo() {
 		List<List<ICrosser>> redoArray =new ArrayList<List<ICrosser>>();
 		redoArray=redo.pop();
 		undo.push(redoArray);
-		CrossersOnLeftBank=redoArray.get(0);
+        CrossersOnLeftBank=redoArray.get(0);
 		Crossers=redoArray.get(1);
 		CrossersOnRightBank=redoArray.get(2);
 		numberOfSails ++;
@@ -253,5 +271,11 @@ public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
 	public List<List<ICrosser>> solveGame() {
 		return null;
 	}
+
+	public List<ICrosser> getCrossers() {
+		return Crossers;
+	}
+	
+	
 
 }
