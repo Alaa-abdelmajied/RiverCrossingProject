@@ -196,6 +196,7 @@ public boolean canMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
 	}*/
 @Override
 public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
+	this.Crossers=crossers;
 	if(fromLeftToRightBank==false)
 	{
 	   for(int i = 0 ;i<crossers.size();i++)
@@ -217,10 +218,10 @@ public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
 		List <List<ICrosser>> state = new ArrayList <>();
 
 	state.add(CrossersOnLeftBank);
-	state.add(crossers);
+	state.add(this.Crossers);
 	state.add(CrossersOnRightBank);
 	undo.push(state);
-	//System.out.println("size of crossers in do move of undo"+crossers.size());
+	//System.out.println("size of crossers in do move of undo"+state.get(1).size());
 	//System.out.println("size of undo"+undo.size());
 		//undoredo.add(crossers);
 	numberOfSails ++;
@@ -250,8 +251,9 @@ public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
 		redo.push(undoArray);
 		CrossersOnLeftBank=undoArray.get(0);
 		Crossers=undoArray.get(1);
-		//System.out.println("logic undo"+Crossers.size());
 		CrossersOnRightBank=undoArray.get(2);
+		System.out.println("logic undo"+Crossers.size());
+
 		numberOfSails ++;
 		if(isBoatOnTheLeftBank==true)
 			isBoatOnTheLeftBank=false;

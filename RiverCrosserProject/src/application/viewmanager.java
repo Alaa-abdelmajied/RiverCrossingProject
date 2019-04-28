@@ -25,9 +25,9 @@ public class viewmanager {
 	 fxxxbutton button2= new fxxxbutton("Level 1");
 	 public Game game;
 
-		// public Game getGame() {
-			//return game;
-		//}
+		 /*public Game getGame() {
+			return game;
+		}*/
 			public void setgame (Game game) {
 				this.game=game;
 			}
