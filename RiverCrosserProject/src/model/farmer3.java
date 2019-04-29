@@ -21,7 +21,7 @@ import javafx.util.Duration;
 
 public class farmer3 extends SubScene {
 	private String Font_Path="src/model/resources/kenvector_future.ttf";
-	private String backimage="file:farmer3.png";
+	private String backimage="file:farmer.png";
 private  boolean ishidden;
 int x=0;double z;
 fxxsubscene boat;
@@ -43,7 +43,7 @@ goatsubscene goat;
 		int x=0;
 		prefWidth(600);
 		prefHeight(400);
-		BackgroundImage image=new BackgroundImage(new Image(backimage,40,40,false,true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
+		BackgroundImage image=new BackgroundImage(new Image(backimage,50,50,false,true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
 		AnchorPane root2=(AnchorPane) this.getRoot();
 		root2.setBackground(new Background(image));
 		setLayoutX(1024);
@@ -63,7 +63,7 @@ farmeronboat=true;//goat=new goatsubscene();
 		
 		if(x==0&&k==false) {	// System.out.println(k);
 
-			transition.setToX(-400);
+			transition.setToX(-250);
 		     z=transition.getToX();
 
 			//ishidden=true;

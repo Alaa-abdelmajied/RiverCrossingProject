@@ -8,15 +8,9 @@ import javax.imageio.ImageIO;
 
 public class Farmer implements ICrosserModified {
 
-	/*
-	 * Attributes
-	 */
-
 	private double weight;
+	private String label;
 
-	/*
-	 * Getters and setters
-	 */
 
 	@Override
 	public int getEatingRank() {
@@ -39,14 +33,13 @@ public class Farmer implements ICrosserModified {
 
 	@Override
 	public void setLabelToBeShown(String label) {
-		// TODO Auto-generated method stub
-
+		this.label = label;
+		
 	}
 
 	@Override
 	public String getLabelToBeShown() {
-		// TODO Auto-generated method stub
-		return null;
+		return label;
 	}
 
 	@Override
@@ -58,12 +51,6 @@ public class Farmer implements ICrosserModified {
 	public void setWeight(double weight) {
 		this.weight = weight;
 	}
-
-	
-
-	/*
-	 * Behavior
-	 */
 
 	@Override
 	public boolean canSail() {

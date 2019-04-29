@@ -61,7 +61,7 @@ public class Game implements IRiverCrossingController {
 	@Override
 	public void resetGame() {
 
-		//newGame(gameStrategy);
+		// newGame(gameStrategy);
 		view.getButton2().fire();
 	}
 

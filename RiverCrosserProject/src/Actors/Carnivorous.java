@@ -3,18 +3,9 @@ package Actors;
 import java.awt.image.BufferedImage;
 
 public class Carnivorous implements ICrosserModified {
-
-	/*
-	 * Attributes
-	 */
-	
 	
 	private double weight ; 
-	
-	
-	/*
-	 * Getters and setters
-	 */
+	private String label;
 	
 	@Override
 	public double getweight() {
@@ -37,25 +28,17 @@ public class Carnivorous implements ICrosserModified {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 	@Override
 	public void setLabelToBeShown(String label) {
-		// TODO Auto-generated method stub
+		this.label = label;
 		
 	}
 
 	@Override
 	public String getLabelToBeShown() {
-		// TODO Auto-generated method stub
-		return null;
+		return label;
 	}
-	
-	
-	
-	/*
-	 *Behavior
-	 */
-	
 	
 	@Override
 	public boolean canSail() {

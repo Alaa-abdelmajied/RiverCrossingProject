@@ -24,57 +24,61 @@ public class Level2 implements ICrossingStrategy {
 	@Override
 	public boolean isValid(List<ICrosser> rightBankCrossers, List<ICrosser> leftBankCrossers,
 			List<ICrosser> boatRiders) {
-		
-		int flag = 1;
-		if (boatRiders.size()>2) {
-			//System.out.println("2wl if");
+
+		//int flag = 1;
+		boolean check = true;
+		if (boatRiders.size() > 2) {
+			// System.out.println("2wl if");
 			return false;
 
 		}
-		for(int i =0 ;i<boatRiders.size();i++) {
-			if(boatRiders.get(i).canSail()==true) {
-				//System.out.println("tany if");
-				flag=0;
-				}
+		for (int i = 0; i < boatRiders.size(); i++) {
+			if (boatRiders.get(i).canSail() == true) {
+				// System.out.println("tany if");
+				//flag = 0;
+				check = false;
+			}
 		}
-		
-		if(boatRiders.size() == 2) {
-			if(boatRiders.get(0).getweight() + boatRiders.get(1).getweight() > 100)
+
+		if (boatRiders.size() == 2) {
+			if (boatRiders.get(0).getweight() + boatRiders.get(1).getweight() > 100)
 				return false;
 		}
-		if (flag==1)
+		//if (flag == 1)
+		if(check)
 			return false;
-		else  
-			return true;	}
+		else
+			return true;
+	}
 
 	@Override
 	public List<ICrosser> getInitialCrossers() {
-		
+
 		List<ICrosser> intialCrossers = new ArrayList<ICrosser>();
-		
+
 		ActorFactory factory = new ActorFactory();
-		ICrosserModified farmer1 =factory.getcrosser("farmer");
+		ICrosserModified farmer1 = factory.getcrosser("farmer");
 		farmer1.setWeight(90);
-		farmer1.setLabelToBeShown(String.valueOf(farmer1.getweight()));
-		ICrosserModified farmer2 =factory.getcrosser("farmer");
+		farmer1.setLabelToBeShown("Farmer 1: "+String.valueOf(farmer1.getweight()));
+		ICrosserModified farmer2 = factory.getcrosser("farmer");
 		farmer2.setWeight(80);
-		farmer2.setLabelToBeShown(String.valueOf(farmer2.getweight()));
-		ICrosserModified farmer3 =factory.getcrosser("farmer");
+		farmer2.setLabelToBeShown("Farmer 2: "+String.valueOf(farmer2.getweight()));
+		ICrosserModified farmer3 = factory.getcrosser("farmer");
 		farmer3.setWeight(60);
-		farmer3.setLabelToBeShown(String.valueOf(farmer3.getweight()));
-		ICrosserModified farmer4 =factory.getcrosser("farmer");
+		farmer3.setLabelToBeShown("Farmer 3: "+String.valueOf(farmer3.getweight()));
+		ICrosserModified farmer4 = factory.getcrosser("farmer");
 		farmer4.setWeight(40);
-		farmer4.setLabelToBeShown(String.valueOf(farmer4.getweight()));
-		ICrosserModified goat =factory.getcrosser("herbivorous");
+		farmer4.setLabelToBeShown("Farmer 4: "+String.valueOf(farmer4.getweight()));
+		ICrosserModified goat = factory.getcrosser("herbivorous");
 		goat.setWeight(20);
-		goat.setLabelToBeShown(String.valueOf(goat.getweight()));
-		
+		goat.setLabelToBeShown("Goat: "+String.valueOf(goat.getweight()));
+
 		intialCrossers.add(farmer1);
 		intialCrossers.add(farmer2);
 		intialCrossers.add(farmer3);
 		intialCrossers.add(farmer4);
 		intialCrossers.add(goat);
-		
+
 		return intialCrossers;
 	}
 

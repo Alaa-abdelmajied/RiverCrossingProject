@@ -4,15 +4,8 @@ import java.awt.image.BufferedImage;
 
 public class Plant implements ICrosserModified {
 
-	/*
-	 * Attributes
-	 */
-	
 	private double weight;
-
-	/*
-	 * Getters and setters
-	 */
+	private String label;
 	private static Plant instance ;
 	
 	private Plant () {
@@ -38,12 +31,13 @@ public class Plant implements ICrosserModified {
 
 	@Override
 	public void setLabelToBeShown(String label) {
-
+		this.label = label;
+		
 	}
 
 	@Override
 	public String getLabelToBeShown() {
-		return null;
+		return label;
 	}
 
 	@Override
@@ -54,11 +48,6 @@ public class Plant implements ICrosserModified {
 	public void setWeight(double weight) {
 		this.weight = weight;
 	}
-
-
-	/*
-	 * Behavior
-	 */
 
 	@Override
 	public boolean canSail() {
