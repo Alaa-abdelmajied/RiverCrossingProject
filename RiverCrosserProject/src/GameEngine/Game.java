@@ -295,12 +295,12 @@ public class Game implements IRiverCrossingController {
 	@Override
 	public void saveGame() {
 		FileWriterUtils writer = new FileWriterUtils();
-		writer.setBoatOnTheLeft(isBoatOnTheLeftBank());
+		/*writer.setBoatOnTheLeft(isBoatOnTheLeftBank());
 		//writer.setCrossers(getCrossers());
 		writer.setCrossersOnRightBank(getCrossersOnRightBank());
 		writer.setCrossersOnLeftBank(getCrossersOnLeftBank());
 		writer.setNumberOfSails(getNumberOfSails());
-		writer.setGameStrategy(gameStrategy);
+		writer.setGameStrategy(gameStrategy);*/
 		writer.write();
 	}
 
