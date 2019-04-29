@@ -141,7 +141,7 @@ public void createlevel2(Stage menustage) {
 			if (farmer1onboat == true) {
 				System.out.println(crossers.size());
 				for (int j = 0; j < crossers.size(); j++) {
-					if (crossers.get(j) instanceof Farmer) 
+					if (crossers.get(j).getweight() == 90) 
 						crossersOnBoat.add(crossers.get(j));
 				}
 			}
@@ -155,19 +155,19 @@ public void createlevel2(Stage menustage) {
 
 			if (farmer2onboat == true) {
 				for (int j = 0; j < crossers.size(); j++) {
-					if (crossers.get(j) instanceof Carnivorous)
+					if (crossers.get(j).getweight() == 80)
 						crossersOnBoat.add(crossers.get(j));
 				}
 			}
 
 			if (farmer3onboat == true) {
 				for (int j = 0; j < crossers.size(); j++) {
-					if (crossers.get(j) instanceof Plant)
+					if (crossers.get(j).getweight() == 60)
 						crossersOnBoat.add(crossers.get(j));
 				}
 				if (farmer4onboat == true) {
 					for (int j = 0; j < crossers.size(); j++) {
-						if (crossers.get(j) instanceof Plant)
+						if (crossers.get(j).getweight() == 40)
 							crossersOnBoat.add(crossers.get(j));
 					}}
 			}}
@@ -176,7 +176,7 @@ public void createlevel2(Stage menustage) {
 				if (farmer1onboat == true) {
 					System.out.println(game.getCrossersOnLeftBank().size());
 					for (int j = 0; j < game.getCrossersOnLeftBank().size(); j++) {
-						if (game.getCrossersOnLeftBank().get(j) instanceof Farmer) 
+						if (game.getCrossersOnLeftBank().get(j).getweight() == 90) 
 							crossersOnBoat.add(game.getCrossersOnLeftBank().get(j));
 					}
 				}
@@ -190,20 +190,20 @@ public void createlevel2(Stage menustage) {
 
 				if (farmer2onboat == true) {
 					for (int j = 0; j < game.getCrossersOnLeftBank().size(); j++) {
-						if (game.getCrossersOnLeftBank().get(j) instanceof Carnivorous)
+						if (game.getCrossersOnLeftBank().get(j).getweight() == 80)
 							crossersOnBoat.add(game.getCrossersOnLeftBank().get(j));
 					}
 				}
 
 				if (farmer3onboat == true) {
 					for (int j = 0; j < game.getCrossersOnLeftBank().size(); j++) {
-						if (game.getCrossersOnLeftBank().get(j) instanceof Plant)
+						if (game.getCrossersOnLeftBank().get(j).getweight() == 60)
 							crossersOnBoat.add(game.getCrossersOnLeftBank().get(j));
 					}
 				}	
 				if (farmer4onboat == true) {
 					for (int j = 0; j < game.getCrossersOnLeftBank().size(); j++) {
-						if (game.getCrossersOnLeftBank().get(j) instanceof Plant)
+						if (game.getCrossersOnLeftBank().get(j).getweight() == 40)
 							crossersOnBoat.add(game.getCrossersOnLeftBank().get(j));
 					}
 				}	
@@ -256,16 +256,16 @@ public void createlevel2(Stage menustage) {
 			System.out.println("size of crossers undo gui "+this.crossers.size());
 			creditssub.moveSubscene();
 			for(int i=0;i<this.crossers.size();i++) {
-if((this.crossers.get(i) instanceof Farmer)&&game.isBoatOnTheLeftBank()==true){farmer1.moveSubscene(game.isBoatOnTheLeftBank());}
-if((this.crossers.get(i) instanceof Farmer)&&game.isBoatOnTheLeftBank()==false){farmer1.moveSubscene(game.isBoatOnTheLeftBank()); }
+if((this.crossers.get(i).getweight() == 90)&&game.isBoatOnTheLeftBank()==true){farmer1.moveSubscene(game.isBoatOnTheLeftBank());}
+if((this.crossers.get(i).getweight() == 90)&&game.isBoatOnTheLeftBank()==false){farmer1.moveSubscene(game.isBoatOnTheLeftBank()); }
 if((this.crossers.get(i) instanceof Herbivorous)&&game.isBoatOnTheLeftBank()==true){goat.moveSubscene(game.isBoatOnTheLeftBank()); }
 if((this.crossers.get(i) instanceof Herbivorous)&&game.isBoatOnTheLeftBank()==false){goat.moveSubscene(game.isBoatOnTheLeftBank()); }
-if((this.crossers.get(i) instanceof Farmer)&&game.isBoatOnTheLeftBank()==true){farmer2.moveSubscene(game.isBoatOnTheLeftBank());}
-if((this.crossers.get(i) instanceof Farmer)&&game.isBoatOnTheLeftBank()==false){farmer2.moveSubscene(game.isBoatOnTheLeftBank()); }
-if((this.crossers.get(i) instanceof Farmer)&&game.isBoatOnTheLeftBank()==true){farmer3.moveSubscene(game.isBoatOnTheLeftBank()); }
-if((this.crossers.get(i) instanceof Farmer)&&game.isBoatOnTheLeftBank()==false){farmer3.moveSubscene(game.isBoatOnTheLeftBank()); }
-if((this.crossers.get(i) instanceof Farmer)&&game.isBoatOnTheLeftBank()==true){farmer4.moveSubscene(game.isBoatOnTheLeftBank()); }
-if((this.crossers.get(i) instanceof Farmer)&&game.isBoatOnTheLeftBank()==false){farmer4.moveSubscene(game.isBoatOnTheLeftBank()); }
+if((this.crossers.get(i).getweight() == 80)&&game.isBoatOnTheLeftBank()==true){farmer2.moveSubscene(game.isBoatOnTheLeftBank());}
+if((this.crossers.get(i).getweight() == 80)&&game.isBoatOnTheLeftBank()==false){farmer2.moveSubscene(game.isBoatOnTheLeftBank()); }
+if((this.crossers.get(i).getweight() == 60)&&game.isBoatOnTheLeftBank()==true){farmer3.moveSubscene(game.isBoatOnTheLeftBank()); }
+if((this.crossers.get(i).getweight() == 60)&&game.isBoatOnTheLeftBank()==false){farmer3.moveSubscene(game.isBoatOnTheLeftBank()); }
+if((this.crossers.get(i).getweight() == 40)&&game.isBoatOnTheLeftBank()==true){farmer4.moveSubscene(game.isBoatOnTheLeftBank()); }
+if((this.crossers.get(i).getweight() == 40)&&game.isBoatOnTheLeftBank()==false){farmer4.moveSubscene(game.isBoatOnTheLeftBank()); }
 }}		
 		
 		});

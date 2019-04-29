@@ -25,17 +25,27 @@ public class Level2 implements ICrossingStrategy {
 	public boolean isValid(List<ICrosser> rightBankCrossers, List<ICrosser> leftBankCrossers,
 			List<ICrosser> boatRiders) {
 		
-		for(int i = 0 ; i < boatRiders.size() ; i++) {
-			if(!boatRiders.get(i).canSail())
-				return false;
+		int flag = 1;
+		if (boatRiders.size()>2) {
+			//System.out.println("2wl if");
+			return false;
+
+		}
+		for(int i =0 ;i<boatRiders.size();i++) {
+			if(boatRiders.get(i).canSail()==true) {
+				//System.out.println("tany if");
+				flag=0;
+				}
 		}
 		
 		if(boatRiders.size() == 2) {
 			if(boatRiders.get(0).getweight() + boatRiders.get(1).getweight() > 100)
 				return false;
 		}
-		return true;
-	}
+		if (flag==1)
+			return false;
+		else  
+			return true;	}
 
 	@Override
 	public List<ICrosser> getInitialCrossers() {
