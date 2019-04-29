@@ -20,7 +20,7 @@ public class Farmer implements ICrosserModified {
 	@Override
 	public BufferedImage[] getImages() {
 		BufferedImage[] bufferedImages = new BufferedImage[1];
-		 File initialImage = new File("C://Users/Fujitsu/Desktop/farmer.png");
+		 File initialImage = new File("farmer.png");
 		 try {
 			bufferedImages[0] = ImageIO.read(initialImage);
 		} catch (IOException e) {

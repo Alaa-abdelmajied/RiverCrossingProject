@@ -35,7 +35,7 @@ public class level2 {
 	private model.farmer2 farmer2;
 	private model.farmer3 farmer3;
 	private model.farmer4 farmer4;
-	private goatsubscene goat;
+	public  goatsubscene goat;
 
 	private boolean farmeronboat = false;
 
@@ -46,15 +46,15 @@ public class level2 {
 	public void createsubscene() {
 		creditssub = new fxxsubscene();
 		mainPane.getChildren().add(creditssub);
-		goat = new goatsubscene(crossers.get(2));
+		goat = new goatsubscene(crossers.get(4));
 		mainPane.getChildren().add(goat);
 		farmer1 = new farmer_subscene(crossers.get(0));
 		mainPane.getChildren().add(farmer1);
-		farmer2 = new model.farmer2(crossers.get(0));
+		farmer2 = new model.farmer2(crossers.get(1));
 		mainPane.getChildren().add(farmer2);
-		farmer3 = new model.farmer3(crossers.get(0));
+		farmer3 = new model.farmer3(crossers.get(2));
 		mainPane.getChildren().add(farmer3);
-		farmer4 = new model.farmer4(crossers.get(0));
+		farmer4 = new model.farmer4(crossers.get(3));
 		mainPane.getChildren().add(farmer4);
 
 	}
@@ -99,7 +99,7 @@ public class level2 {
 		v.setLayoutY(50);
 
 		button1.setOnAction(m -> {
-			boolean goatonboat = false;
+			boolean goatonboat    = false;
 			boolean farmer1onboat = false;
 			boolean farmer2onboat = false;
 			boolean farmer3onboat = false;
@@ -122,9 +122,9 @@ public class level2 {
 				farmer1onboat = true;
 			}
 			if ((farmer4.getTranslateX() < -318 && farmer4.getTranslateX() > -430)
-					^ (farmer1.getTranslateX() < -537 && farmer1.getTranslateX() > -655)) {
+					^ (farmer4.getTranslateX() < -537 && farmer4.getTranslateX() > -655)) {
 				// crossersOnBoat.add(crossers.get(0));
-				farmer1onboat = true;
+				farmer4onboat = true;System.out.println("farmer 4 on boat 2wl wa7da"+farmer4onboat);
 			}
 
 			if ((farmer3.getTranslateX() < -318 && farmer3.getTranslateX() > -430)
@@ -165,14 +165,15 @@ public class level2 {
 					for (int j = 0; j < crossers.size(); j++) {
 						if (crossers.get(j).getweight() == 60)
 							crossersOnBoat.add(crossers.get(j));
-					}
-					if (farmer4onboat == true) {
+						
+					}}
+					if (farmer4onboat == true) {System.out.println("jjjjjjjjjjjjjjjjjkkkkkkkkkkkkk");
+
 						for (int j = 0; j < crossers.size(); j++) {
 							if (crossers.get(j).getweight() == 40)
 								crossersOnBoat.add(crossers.get(j));
-						}
-					}
-				}
+					}}
+				
 			} else {
 				if (farmer1onboat == true) {
 					System.out.println(game.getCrossersOnLeftBank().size());

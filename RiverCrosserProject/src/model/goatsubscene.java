@@ -1,12 +1,18 @@
 package model;
+import java.awt.image.BufferedImage;
+
+import javax.imageio.ImageIO;
+
 import Actors.Herbivorous;
 import Actors.ICrosser;
 import javafx.animation.TranslateTransition;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.SubScene;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
@@ -16,10 +22,11 @@ import javafx.scene.layout.BackgroundRepeat;
 import javafx.util.Duration;
 
 public class goatsubscene extends SubScene{
+	public Image goatimg;
 
-	private String Font_Path="src/model/resources/kenvector_future.ttf";
-	private String backimage="file:goat.png";
-private  boolean ishidden;
+	//private String Font_Path="src/model/resources/kenvector_future.ttf";
+	//private String backimage="file:goat.png";
+//private  boolean ishidden;
 int x=0;public double y; double z;
 fxxsubscene boat;
 TranslateTransition transition ;
@@ -28,13 +35,21 @@ double orgTranslateX, orgTranslateY;
 //ICrosser goat = new Herbivorous();
 public goatsubscene(ICrosser goat) {
 	
-	super(new AnchorPane(), 600, 400);
-	int x=0;
+	super(new AnchorPane(), 50, 50);
+	//int x=0;
 	prefWidth(600);
 	prefHeight(400);
-	BackgroundImage image=new BackgroundImage(new Image(backimage,40,40,false,true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
+	BufferedImage imagee=(goat.getImages()[0]);
+	//imagee.createGraphics().scale(50, 50);
+	 goatimg = SwingFXUtils.toFXImage(imagee, null);
+	 ImageView img =new ImageView(goatimg);
+	
+
+	BackgroundImage image=new BackgroundImage(goatimg, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
 	AnchorPane root2=(AnchorPane) this.getRoot();
 	root2.setBackground(new Background(image));
+	root2.getChildren().add(img);
+	root2.autosize();
 	setLayoutX(1024);
 	setLayoutY(310);
 }
@@ -147,7 +162,7 @@ public void handle(MouseEvent t) {
     System.out.println(z);
    transition.setToY(newTranslateY);
     ((Node) t.getSource()).setTranslateY(newTranslateY);
-    if(y>43||y<-4) {transition.setToX(-300);transition.setToY(6);transition.play();z=transition.getToX();}
+    if(y>43||y<-8) {transition.setToX(-300);transition.setToY(6);transition.play();z=transition.getToX();}
 }else {transition.setToX(-300);transition.setToY(6);transition.play();z=transition.getToX();}
      
      
@@ -162,7 +177,7 @@ public void handle(MouseEvent t) {
      System.out.println(z);
     transition.setToY(newTranslateY);
      ((Node) t.getSource()).setTranslateY(newTranslateY);
-     if(y>43||y<-4) {transition.setToX(-300);transition.setToY(6);transition.play();z=transition.getToX();}
+     if(y>43||y<-8) {transition.setToX(-690);transition.setToY(6);transition.play();z=transition.getToX();}
  }else {transition.setToX(-690);transition.setToY(6);transition.play();z=transition.getToX();}
 
 

@@ -1,6 +1,12 @@
 package Actors;
 
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public class Herbivorous implements ICrosserModified {
 
@@ -19,8 +25,35 @@ public class Herbivorous implements ICrosserModified {
 
 	@Override
 	public BufferedImage[] getImages() {
-		// TODO Auto-generated method stub
-		return null;
+		BufferedImage[] bufferedImages = new BufferedImage[1];
+		 File initialImage = new File("goat.png");
+		 try {
+			bufferedImages[0] = ImageIO.read(initialImage);
+			BufferedImage scaledImage = new BufferedImage(
+					
+					50, 50, BufferedImage.TYPE_INT_ARGB);
+					
+					 
+					
+					
+					Graphics2D graphics2D = scaledImage.createGraphics();
+					
+					graphics2D.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
+					
+					RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+					
+					graphics2D.drawImage(bufferedImages[0], 0, 0, 50, 50, null);
+					
+					graphics2D.dispose();
+					bufferedImages[0]=scaledImage;
+			
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return bufferedImages;
 	}
 
 	@Override
