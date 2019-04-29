@@ -330,7 +330,7 @@ public class level1 {
 
 		button6.setOnAction(m -> {
 
-			
+			game.saveGame();
 			
 			
 			

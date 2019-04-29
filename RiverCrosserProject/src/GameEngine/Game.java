@@ -9,6 +9,7 @@ import LevelCreater.ICrossingStrategy;
 import LevelCreater.Level1;
 import application.level1;
 import application.viewmanager;
+import saving.FileWriterUtils;
 
 public class Game implements IRiverCrossingController {
 
@@ -293,7 +294,14 @@ public class Game implements IRiverCrossingController {
 
 	@Override
 	public void saveGame() {
-
+		FileWriterUtils writer = new FileWriterUtils();
+		writer.setBoatOnTheLeft(isBoatOnTheLeftBank());
+		//writer.setCrossers(getCrossers());
+		writer.setCrossersOnRightBank(getCrossersOnRightBank());
+		writer.setCrossersOnLeftBank(getCrossersOnLeftBank());
+		writer.setNumberOfSails(getNumberOfSails());
+		writer.setGameStrategy(gameStrategy);
+		writer.write();
 	}
 
 	@Override

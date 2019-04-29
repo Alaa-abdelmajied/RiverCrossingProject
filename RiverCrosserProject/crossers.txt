@@ -1,9 +1,2 @@
-<?xml version="1.0"?>
-<ICrossers>
-	<left> carnivorous </left>
-	<right>  herbivorous </right>
-	<boat>  farmer </boat>
-	<boatAtTheLeft> true </boatAtTheLeft>
-	<moves> 4 </moves>
-</ICrossers>
-	
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<level1/>
