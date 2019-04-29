@@ -35,7 +35,7 @@ goatsubscene goat;
 //ICrosser farmer = factory.getcrosser("farmer");
 	public farmer2(ICrosser farmer) {
 	
-		super(new AnchorPane(), 50, 50);
+		super(new AnchorPane(), 100, 100);
 		//Image image=SwingFXUtils.toFXImage(farmer.getImages()[0], null);
 	//	this.farmer=farmer;
 		System.out.println("rrrrrr"+farmer);
@@ -43,7 +43,7 @@ goatsubscene goat;
 		int x=0;
 		prefWidth(600);
 		prefHeight(400);
-		BackgroundImage image=new BackgroundImage(new Image(backimage,40,40,false,true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
+		BackgroundImage image=new BackgroundImage(new Image(backimage,100,100,false,true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
 		AnchorPane root2=(AnchorPane) this.getRoot();
 		root2.setBackground(new Background(image));
 		setLayoutX(1024);
