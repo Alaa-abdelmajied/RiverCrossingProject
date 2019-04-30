@@ -80,6 +80,7 @@ public class level2 {
 		Levelsbuttons button2 = new Levelsbuttons("goat");
 		Levelsbuttons button3 = new Levelsbuttons("undo");
 		Levelsbuttons button4 = new Levelsbuttons("redo");
+		Levelsbuttons button5 = new Levelsbuttons("save");
 
 		VBox v = new VBox();
 		v.getChildren().add(button1);
@@ -87,11 +88,12 @@ public class level2 {
 		HBox h = new HBox();
 		h.getChildren().add(button3);
 		h.getChildren().add(button4);
-		h.setSpacing(600);
+		h.getChildren().add(button5);
+		h.setSpacing(300);
 		h.setLayoutX(0);
 		h.setLayoutY(0);
 
-		v.setSpacing(50);
+		v.setSpacing(25);
 		mainPane.getChildren().add(v);
 		mainPane.getChildren().add(h);
 
@@ -337,11 +339,12 @@ public class level2 {
 
 		});
 
-		// button2.setOnAction(m->{
+		 button5.setOnAction(m->{
 
-		// goat.moveSubscene();
 
-		// });
+			 
+			 
+		 });
 
 		createsubscene();
 		boolean k = creditssub.moveSubscene();
