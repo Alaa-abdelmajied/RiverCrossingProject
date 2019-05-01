@@ -38,7 +38,44 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 public class FileWriterUtils{
+	private List<ICrosser> CrossersOnRightBank = new ArrayList<ICrosser>();
+	private List<ICrosser> CrossersOnLeftBank = new ArrayList<ICrosser>();
+	//private List<ICrosser> Crossers = new ArrayList<ICrosser>();
+	private ICrossingStrategy gameStrategy;
+	private boolean isBoatOnTheLeftBank;
+	private int numberOfSails ;
+	private String level;
+	public void setCrossersOnRightBank(List<ICrosser> crossersOnRightBank) {
+		CrossersOnRightBank = crossersOnRightBank;
+	}
+
+	public void setCrossersOnLeftBank(List<ICrosser> crossersOnLeftBank) {
+		CrossersOnLeftBank = crossersOnLeftBank;
+	}
+
+	/*public void setCrossers(List<ICrosser> crossers) {
+		Crossers = crossers;
+	}*/
+
+	public void setGameStrategy(ICrossingStrategy gameStrategy) {
+		this.gameStrategy = gameStrategy;
+		if(this.gameStrategy instanceof Level1)
+			level = "level1";
+		else 
+			level = "level2";
+	}
+
+	public void setBoatOnTheLeftBank(boolean isBoatOnTheLeftBank) {
+		this.isBoatOnTheLeftBank = isBoatOnTheLeftBank;
+	}
+
+	public void setNumberOfSails(int numberOfSails) {
+		this.numberOfSails = numberOfSails;
+	}
+
 	
+	static Element rootElement ;
+	static Document doc;
 
     public void write () {
     	
@@ -47,6 +84,7 @@ public class FileWriterUtils{
     	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder;
        
+       
         //java.util.List<> rightbank = new ArrayList <ICrossers> ();
         
         try {
@@ -54,15 +92,79 @@ public class FileWriterUtils{
         	dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.newDocument();
             
-            Element rootElement = doc.createElement("Level1");
+            if(level.equalsIgnoreCase("level1")) {
+            
+            Element rootElement = doc.createElement(level);
             doc.appendChild(rootElement);
+            
+            Element crosser = doc.createElement("crossersOnRightBank");
+        crosser.appendChild(doc.createTextNode("\n"));
 
-            //append first child element to root element
-            rootElement.appendChild(getEmployee(doc, "1", "Pankaj", "29", "Java Developer", "Male"));
-
-            //append second child
-            rootElement.appendChild(getEmployee(doc, "2", "Lisa", "35", "Manager", "Female"));
-
+            rootElement.appendChild(crosser);
+            for(int i = 0 ; i < CrossersOnRightBank.size(); i++ ) {
+            	crosser.appendChild(doc.createTextNode(Integer.toString( CrossersOnRightBank.get(i).getEatingRank())));
+              	 crosser.appendChild(doc.createTextNode("\n"));
+            }
+       
+            
+            crosser = doc.createElement("crossersOnLeftBank");
+          	 crosser.appendChild(doc.createTextNode("\n"));
+          	 rootElement.appendChild(crosser);
+               for(int i = 0 ; i < CrossersOnLeftBank.size(); i++ ) {
+               	 crosser.appendChild(doc.createTextNode(Integer.toString( CrossersOnLeftBank.get(i).getEatingRank())));
+               	 crosser.appendChild(doc.createTextNode("\n"));
+               }
+               
+               crosser = doc.createElement("isBoatOnTheLeftBank");
+             	 crosser.appendChild(doc.createTextNode("\n"));
+               	 crosser.appendChild(doc.createTextNode(Boolean.toString(isBoatOnTheLeftBank)));
+             	 crosser.appendChild(doc.createTextNode("\n"));
+             	 rootElement.appendChild(crosser);
+            
+             	 
+             	   crosser = doc.createElement("numberOfSails");
+               	 crosser.appendChild(doc.createTextNode("\n"));
+                 	 crosser.appendChild(doc.createTextNode(Integer.toString(numberOfSails)));
+               	 crosser.appendChild(doc.createTextNode("\n"));
+               	 rootElement.appendChild(crosser); 	 
+           
+           
+}
+            else
+            {
+            	   Element rootElement = doc.createElement(level);
+                   doc.appendChild(rootElement);
+                   
+                   Element crosser = doc.createElement("crossersOnRightBank");
+              	 crosser.appendChild(doc.createTextNode("\n"));
+              	 rootElement.appendChild(crosser);
+                 for(int i = 0 ; i < CrossersOnRightBank.size(); i++ ) {
+                 	 crosser.appendChild(doc.createTextNode(Double.toString( CrossersOnRightBank.get(i).getweight())));
+                 	 crosser.appendChild(doc.createTextNode("\n"));
+                 }
+                 
+                 crosser = doc.createElement("crossersOnLeftBank");
+              	 crosser.appendChild(doc.createTextNode("\n"));
+              	 rootElement.appendChild(crosser);
+                   for(int i = 0 ; i < CrossersOnLeftBank.size(); i++ ) {
+                   	 crosser.appendChild(doc.createTextNode(Double.toString( CrossersOnLeftBank.get(i).getweight())));
+                   	 crosser.appendChild(doc.createTextNode("\n"));
+                   }
+                   crosser = doc.createElement("isBoatOnTheLeftBank");
+               	 crosser.appendChild(doc.createTextNode("\n"));
+                 	 crosser.appendChild(doc.createTextNode(Boolean.toString(isBoatOnTheLeftBank)));
+               	 crosser.appendChild(doc.createTextNode("\n"));
+               	 rootElement.appendChild(crosser);
+              
+               	 
+               	   crosser = doc.createElement("numberOfSails");
+                 	 crosser.appendChild(doc.createTextNode("\n"));
+                   	 crosser.appendChild(doc.createTextNode(Integer.toString(numberOfSails)));
+                 	 crosser.appendChild(doc.createTextNode("\n"));
+                 	 rootElement.appendChild(crosser); 	
+              	 
+            }
+           
             //for output to file, console
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
@@ -85,7 +187,7 @@ public class FileWriterUtils{
         }
     }
 
-    private static Node getEmployee(Document doc, String id, String name, String age, String role,
+    /*private static Node getEmployee(Document doc, String id, String name, String age, String role,
             String gender) {
         Element employee = doc.createElement("Employee");
 
@@ -112,6 +214,6 @@ public class FileWriterUtils{
         Element node = doc.createElement(name);
         node.appendChild(doc.createTextNode(value));
         return node;
-    }
+    }*/
 
 }

@@ -105,7 +105,9 @@ public class viewmanager {
        //	 level1.getMainStage();
        	 
 			});
-
+		button1.setOnAction(m->{
+		     game.loadGame();
+		});
 		v.setSpacing(50);
 		mainPane.getChildren().add(v);
 		v.setLayoutX(300);

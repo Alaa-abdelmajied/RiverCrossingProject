@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Level1>
-<Employee id="1">
-<name>Pankaj</name>
-<age>29</age>
-<role>Java Developer</role>
-<gender>Male</gender>
-</Employee>
-<Employee id="2">
-<name>Lisa</name>
-<age>35</age>
-<role>Manager</role>
-<gender>Female</gender>
-</Employee>
-</Level1>
+<level2>
+<crossersOnRightBank>
+80.0
+60.0
+40.0
+20.0
+</crossersOnRightBank>
+<crossersOnLeftBank>
+90.0
+</crossersOnLeftBank>
+<isBoatOnTheLeftBank>
+true
+</isBoatOnTheLeftBank>
+<numberOfSails>
+1
+</numberOfSails>
+</level2>

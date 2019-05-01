@@ -9,6 +9,7 @@ import LevelCreater.ICrossingStrategy;
 import LevelCreater.Level1;
 import application.level1;
 import application.viewmanager;
+import saving.FileReaderUtils;
 import saving.FileWriterUtils;
 
 public class Game implements IRiverCrossingController {
@@ -228,7 +229,7 @@ public class Game implements IRiverCrossingController {
 		CrossersOnLeftBank = undoArray.get(0);
 		Crossers = undoArray.get(1);
 		CrossersOnRightBank = undoArray.get(2);
-		System.out.println("logic undo" + CrossersOnLeftBank.size());
+		System.out.println("logic undo" + Crossers.size());
 		if (isBoatOnTheLeftBank()) {
 			for (int i = 0; i < this.Crossers.size(); i++) {
 				CrossersOnRightBank.add(Crossers.get(i));
@@ -295,17 +296,31 @@ public class Game implements IRiverCrossingController {
 	@Override
 	public void saveGame() {
 		FileWriterUtils writer = new FileWriterUtils();
-		/*writer.setBoatOnTheLeft(isBoatOnTheLeftBank());
+		writer.setBoatOnTheLeftBank(isBoatOnTheLeftBank());
 		//writer.setCrossers(getCrossers());
 		writer.setCrossersOnRightBank(getCrossersOnRightBank());
 		writer.setCrossersOnLeftBank(getCrossersOnLeftBank());
 		writer.setNumberOfSails(getNumberOfSails());
-		writer.setGameStrategy(gameStrategy);*/
+		writer.setGameStrategy(gameStrategy);
 		writer.write();
 	}
 
 	@Override
 	public void loadGame() {
+		FileReaderUtils reader = new FileReaderUtils();
+		reader.read();
+		this.CrossersOnLeftBank=reader.getCrossersOnLeftBank();
+		this.CrossersOnRightBank=reader.getCrossersOnRightBank();
+		this.gameStrategy=reader.getGameStrategy();
+		this.isBoatOnTheLeftBank=reader.getisBoatOnTheLeftBank();
+		this.numberOfSails=reader.getNumberOfSails();		
+     System.out.println("right fe game"+this.CrossersOnRightBank.size());
+     //System.out.println(this.CrossersOnRightBank.get(1));
+     //System.out.println(this.CrossersOnLeftBank.get(0));
+     System.out.println(this.CrossersOnLeftBank.size());
+     System.out.println(this.gameStrategy);
+     System.out.println(this.isBoatOnTheLeftBank);
+     System.out.println(this.numberOfSails);
 
 	}
 

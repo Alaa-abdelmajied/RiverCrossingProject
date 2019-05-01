@@ -169,7 +169,8 @@ public class level2 {
 							crossersOnBoat.add(crossers.get(j));
 						
 					}}
-					if (farmer4onboat == true) {System.out.println("jjjjjjjjjjjjjjjjjkkkkkkkkkkkkk");
+					if (farmer4onboat == true) {
+						System.out.println("jjjjjjjjjjjjjjjjjkkkkkkkkkkkkk");
 
 						for (int j = 0; j < crossers.size(); j++) {
 							if (crossers.get(j).getweight() == 40)
@@ -255,37 +256,37 @@ public class level2 {
 				game.commandundo();
 				this.crossersOnBoat = game.getCrossers();
 				System.out.println("print for undo " + game.isBoatOnTheLeftBank());
-				System.out.println("size of crossers undo gui " + this.crossers.size());
+				System.out.println("size of crossers undo gui " + this.crossersOnBoat.size());
 				creditssub.moveSubscene();
-				for (int i = 0; i < this.crossers.size(); i++) {
-					if ((this.crossers.get(i).getweight() == 90) && game.isBoatOnTheLeftBank() == true) {
+				for (int i = 0; i < this.crossersOnBoat.size(); i++) {
+					if ((this.crossersOnBoat.get(i).getweight() == 90) && game.isBoatOnTheLeftBank() == true) {
 						farmer1.moveSubscene(game.isBoatOnTheLeftBank());
 					}
-					if ((this.crossers.get(i).getweight() == 90) && game.isBoatOnTheLeftBank() == false) {
+					if ((this.crossersOnBoat.get(i).getweight() == 90) && game.isBoatOnTheLeftBank() == false) {
 						farmer1.moveSubscene(game.isBoatOnTheLeftBank());
 					}
-					if ((this.crossers.get(i) instanceof Herbivorous) && game.isBoatOnTheLeftBank() == true) {
+					if ((this.crossersOnBoat.get(i) instanceof Herbivorous) && game.isBoatOnTheLeftBank() == true) {
 						goat.moveSubscene(game.isBoatOnTheLeftBank());
 					}
-					if ((this.crossers.get(i) instanceof Herbivorous) && game.isBoatOnTheLeftBank() == false) {
+					if ((this.crossersOnBoat.get(i) instanceof Herbivorous) && game.isBoatOnTheLeftBank() == false) {
 						goat.moveSubscene(game.isBoatOnTheLeftBank());
 					}
-					if ((this.crossers.get(i).getweight() == 80) && game.isBoatOnTheLeftBank() == true) {
+					if ((this.crossersOnBoat.get(i).getweight() == 80) && game.isBoatOnTheLeftBank() == true) {
 						farmer2.moveSubscene(game.isBoatOnTheLeftBank());
 					}
-					if ((this.crossers.get(i).getweight() == 80) && game.isBoatOnTheLeftBank() == false) {
+					if ((this.crossersOnBoat.get(i).getweight() == 80) && game.isBoatOnTheLeftBank() == false) {
 						farmer2.moveSubscene(game.isBoatOnTheLeftBank());
 					}
-					if ((this.crossers.get(i).getweight() == 60) && game.isBoatOnTheLeftBank() == true) {
+					if ((this.crossersOnBoat.get(i).getweight() == 60) && game.isBoatOnTheLeftBank() == true) {
 						farmer3.moveSubscene(game.isBoatOnTheLeftBank());
 					}
-					if ((this.crossers.get(i).getweight() == 60) && game.isBoatOnTheLeftBank() == false) {
+					if ((this.crossersOnBoat.get(i).getweight() == 60) && game.isBoatOnTheLeftBank() == false) {
 						farmer3.moveSubscene(game.isBoatOnTheLeftBank());
 					}
-					if ((this.crossers.get(i).getweight() == 40) && game.isBoatOnTheLeftBank() == true) {
+					if ((this.crossersOnBoat.get(i).getweight() == 40) && game.isBoatOnTheLeftBank() == true) {
 						farmer4.moveSubscene(game.isBoatOnTheLeftBank());
 					}
-					if ((this.crossers.get(i).getweight() == 40) && game.isBoatOnTheLeftBank() == false) {
+					if ((this.crossersOnBoat.get(i).getweight() == 40) && game.isBoatOnTheLeftBank() == false) {
 						farmer4.moveSubscene(game.isBoatOnTheLeftBank());
 					}
 				}
@@ -302,35 +303,35 @@ public class level2 {
 				System.out.println("size of crossers redo gui " + this.crossersOnBoat.size());
 				System.out.println(game.getCrossers().size());
 				creditssub.moveSubscene();
-				for (int i = 0; i < this.crossers.size(); i++) {
-					if ((this.crossers.get(i).getweight() == 90) && game.isBoatOnTheLeftBank() == true) {
+				for (int i = 0; i < this.crossersOnBoat.size(); i++) {
+					if ((this.crossersOnBoat.get(i).getweight() == 90) && game.isBoatOnTheLeftBank() == true) {
 						farmer1.moveSubscene(game.isBoatOnTheLeftBank());
 					}
-					if ((this.crossers.get(i).getweight() == 90) && game.isBoatOnTheLeftBank() == false) {
+					if ((this.crossersOnBoat.get(i).getweight() == 90) && game.isBoatOnTheLeftBank() == false) {
 						farmer1.moveSubscene(game.isBoatOnTheLeftBank());
 					}
-					if ((this.crossers.get(i) instanceof Herbivorous) && game.isBoatOnTheLeftBank() == true) {
+					if ((this.crossersOnBoat.get(i) instanceof Herbivorous) && game.isBoatOnTheLeftBank() == true) {
 						goat.moveSubscene(game.isBoatOnTheLeftBank());
 					}
-					if ((this.crossers.get(i) instanceof Herbivorous) && game.isBoatOnTheLeftBank() == false) {
+					if ((this.crossersOnBoat.get(i) instanceof Herbivorous) && game.isBoatOnTheLeftBank() == false) {
 						goat.moveSubscene(game.isBoatOnTheLeftBank());
 					}
-					if ((this.crossers.get(i).getweight() == 80) && game.isBoatOnTheLeftBank() == true) {
+					if ((this.crossersOnBoat.get(i).getweight() == 80) && game.isBoatOnTheLeftBank() == true) {
 						farmer2.moveSubscene(game.isBoatOnTheLeftBank());
 					}
-					if ((this.crossers.get(i).getweight() == 80) && game.isBoatOnTheLeftBank() == false) {
+					if ((this.crossersOnBoat.get(i).getweight() == 80) && game.isBoatOnTheLeftBank() == false) {
 						farmer2.moveSubscene(game.isBoatOnTheLeftBank());
 					}
-					if ((this.crossers.get(i).getweight() == 60) && game.isBoatOnTheLeftBank() == true) {
+					if ((this.crossersOnBoat.get(i).getweight() == 60) && game.isBoatOnTheLeftBank() == true) {
 						farmer3.moveSubscene(game.isBoatOnTheLeftBank());
 					}
-					if ((this.crossers.get(i).getweight() == 60) && game.isBoatOnTheLeftBank() == false) {
+					if ((this.crossersOnBoat.get(i).getweight() == 60) && game.isBoatOnTheLeftBank() == false) {
 						farmer3.moveSubscene(game.isBoatOnTheLeftBank());
 					}
-					if ((this.crossers.get(i).getweight() == 40) && game.isBoatOnTheLeftBank() == true) {
+					if ((this.crossersOnBoat.get(i).getweight() == 40) && game.isBoatOnTheLeftBank() == true) {
 						farmer4.moveSubscene(game.isBoatOnTheLeftBank());
 					}
-					if ((this.crossers.get(i).getweight() == 40) && game.isBoatOnTheLeftBank() == false) {
+					if ((this.crossersOnBoat.get(i).getweight() == 40) && game.isBoatOnTheLeftBank() == false) {
 						farmer4.moveSubscene(game.isBoatOnTheLeftBank());
 					}
 
@@ -341,6 +342,7 @@ public class level2 {
 
 		 button5.setOnAction(m->{
 
+				game.saveGame();
 
 			 
 			 
