@@ -91,6 +91,50 @@ farmeronboat=true;//goat=new goatsubscene();
 		
 		
 	}
+	
+	
+	
+	
+	
+	
+public void moveSubsceneload(boolean k) {
+		
+		farmeronboat=true;//goat=new goatsubscene();
+
+				transition =new TranslateTransition();
+				transition.setDuration(Duration.seconds(2.95));
+				transition.setNode(this);
+				boat=new fxxsubscene();
+				setOnMousePressed(circleOnMousePressedEventHandler);
+			    setOnMouseDragged(circleOnMouseDraggedEventHandler);
+				
+				
+				if(k==false) {	// System.out.println(k);
+
+					transition.setToX(-400);
+				     z=transition.getToX();
+
+					//ishidden=true;
+					
+					
+					x++;
+				}//left bank
+				else if(k==true) {
+
+					transition.setToX(-635);
+					
+					z=transition.getToX();transition.play();}
+				
+				
+				
+			   
+
+				
+				
+			}
+	
+	
+	
 	public int getx() {return x;}
 	EventHandler<MouseEvent> circleOnMousePressedEventHandler = 
 	new EventHandler<MouseEvent>() {

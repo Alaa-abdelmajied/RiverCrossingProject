@@ -25,7 +25,7 @@ public class farmer_subscene extends SubScene {
 private  boolean ishidden;
 int x=0;double z;
 fxxsubscene boat;
-TranslateTransition transition ;
+public TranslateTransition transition= new TranslateTransition(); ;
 double orgSceneX, orgSceneY;
 double orgTranslateX, orgTranslateY;
 boolean farmeronboat;
@@ -73,7 +73,7 @@ farmeronboat=true;//goat=new goatsubscene();
 		}//left bank
 		else if((z<-335)&&(z>-442)&&k==true) {
 
-			transition.setToX(-560);
+			transition.setToX(-635);
 			
 			z=transition.getToX();}
 		else if((z<-538)&&(z>-653)&&k==false) {
@@ -91,6 +91,58 @@ farmeronboat=true;//goat=new goatsubscene();
 		
 		
 	}
+	
+	
+	
+	
+	
+	public void moveSubsceneload(boolean k) {
+		
+		farmeronboat=true;//goat=new goatsubscene();
+
+				transition =new TranslateTransition();
+				transition.setDuration(Duration.seconds(2.95));
+				transition.setNode(this);
+				boat=new fxxsubscene();
+				setOnMousePressed(circleOnMousePressedEventHandler);
+			    setOnMouseDragged(circleOnMouseDraggedEventHandler);
+				
+				
+				if(k==false) {	// System.out.println(k);
+
+					transition.setToX(-500);
+				     z=transition.getToX();
+
+					//ishidden=true;
+					
+					
+					x++;
+				}//left bank
+				else if(k==true) {
+
+					transition.setToX(-635);
+					
+					z=transition.getToX();transition.play();}
+				
+				
+				
+			   
+
+				
+				
+			}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public int getx() {return x;}
 	EventHandler<MouseEvent> circleOnMousePressedEventHandler = 
 	new EventHandler<MouseEvent>() {

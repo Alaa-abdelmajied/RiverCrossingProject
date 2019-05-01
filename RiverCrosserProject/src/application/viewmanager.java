@@ -2,6 +2,7 @@ package application;
 
 import java.util.List;
 
+import Actors.Farmer;
 import Actors.ICrosser;
 import GameEngine.Game;
 import LevelCreater.ICrossingStrategy;
@@ -107,9 +108,26 @@ public class viewmanager {
 			});
 		button1.setOnAction(m->{
 		     game.loadGame();
-		     if(game.getGameStrategy() instanceof Level1)
+		     if(game.getGameStrategy() instanceof Level1) {level1 Level1=new level1(game.getGameStrategy().getInitialCrossers() , game);
+				Level1.createlevel1(mainStage);
+			Level1.loadsaved();	
+		     
+		     
+		     }
+		     else {level2 Level2=new level2(game.getGameStrategy().getInitialCrossers() , game);
+				Level2.createlevel2(mainStage);
+				Level2.loadsaved();
+				//System.out.println(game);
+				
+		     
+		     
+		     
+		     
+		     
+				
+		     }
 		    	 
-		     else
+		     
 		    	 
 		});
 		v.setSpacing(50);

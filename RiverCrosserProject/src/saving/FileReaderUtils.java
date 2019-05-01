@@ -224,6 +224,7 @@ Node nNode = nList.item(0);
 										CrossersOnRightBank.add(farmer4);
 									}
 									else if (str[temp].equalsIgnoreCase("20.0")) {
+										goat.setWeight(20);
 										CrossersOnRightBank.add(goat);
 
 									}
@@ -268,6 +269,7 @@ Node nNode = nList.item(0);
 														CrossersOnLeftBank.add(farmer4);
 													}
 													else if (str[temp].equalsIgnoreCase("20.0")) {
+														goat.setWeight(20);
 														CrossersOnLeftBank.add(goat);
 
 													}

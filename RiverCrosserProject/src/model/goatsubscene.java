@@ -55,6 +55,8 @@ public goatsubscene(ICrosser goat) {
 }
 public void moveSubscene(boolean k ) {
 	
+	
+	
 
 	transition =new TranslateTransition();
 	transition.setDuration(Duration.seconds(2.95));
@@ -102,6 +104,43 @@ public void moveSubscene(boolean k ) {
 	
 	
 }
+
+public void moveSubsceneload(boolean k) {
+	
+	//goat=new goatsubscene();
+
+			transition =new TranslateTransition();
+			transition.setDuration(Duration.seconds(2.95));
+			transition.setNode(this);
+			boat=new fxxsubscene();
+			setOnMousePressed(circleOnMousePressedEventHandler);
+		    setOnMouseDragged(circleOnMouseDraggedEventHandler);
+			
+			
+			if(k==false) {	// System.out.println(k);
+
+				transition.setToX(-300);
+			     z=transition.getToX();
+
+				//ishidden=true;
+				
+				
+				x++;
+			}//left bank
+			else if(k==true) {
+
+				transition.setToX(-635);
+				
+				z=transition.getToX();transition.play();}
+			
+			
+			
+		   
+
+			
+			
+		}
+
 public void moveSubsceneundo(boolean k ) {
 	
 

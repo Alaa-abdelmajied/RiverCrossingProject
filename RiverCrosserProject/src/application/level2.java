@@ -10,6 +10,9 @@ import Actors.ICrosser;
 import Actors.Plant;
 import GameEngine.Game;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -36,6 +39,7 @@ public class level2 {
 	private model.farmer3 farmer3;
 	private model.farmer4 farmer4;
 	public  goatsubscene goat;
+	Game game;
 
 	private boolean farmeronboat = false;
 
@@ -67,7 +71,10 @@ public class level2 {
 	}
 
 	public level2(java.util.List<ICrosser> crossers, Game game) {
+		
+		
 		this.crossers = crossers;
+		this.game=game;
 		System.out.println("ssssss" + this.crossers.get(0));
 		viewmanager x = new viewmanager();
 		mainPane = new AnchorPane();
@@ -81,7 +88,28 @@ public class level2 {
 		Levelsbuttons button3 = new Levelsbuttons("undo");
 		Levelsbuttons button4 = new Levelsbuttons("redo");
 		Levelsbuttons button5 = new Levelsbuttons("save");
+		Levelsbuttons button6 = new Levelsbuttons("reset");
+		Levelsbuttons button7 = new Levelsbuttons("back");
+		Label label1=new Label(crossers.get(0).getLabelToBeShown());
+		Label label2=new Label(crossers.get(1).getLabelToBeShown());
+		Label label3=new Label(crossers.get(2).getLabelToBeShown());
+		Label label4=new Label(crossers.get(3).getLabelToBeShown());
+		Label label5=new Label(crossers.get(4).getLabelToBeShown());
+		Label label6=new Label(String.valueOf(game.getNumberOfSails()));
+		System.out.println(crossers.get(4).getLabelToBeShown()+"0000000000000000000000");
+		VBox v2 = new VBox();
+		v2.getChildren().add(label1);
+		v2.getChildren().add(label2);
+		v2.getChildren().add(label3);
+		v2.getChildren().add(label4);
+		v2.getChildren().add(label5);
+		v2.getChildren().add(label6);
+		v2.setLayoutX(0);
+		v2.setLayoutY(500);
 
+
+
+		
 		VBox v = new VBox();
 		v.getChildren().add(button1);
 		// v.getChildren().add(button2);
@@ -89,15 +117,18 @@ public class level2 {
 		h.getChildren().add(button3);
 		h.getChildren().add(button4);
 		h.getChildren().add(button5);
-		h.setSpacing(300);
+		h.getChildren().add(button6);
+		h.getChildren().add(button7);
+		h.setSpacing(100);
 		h.setLayoutX(0);
 		h.setLayoutY(0);
 
 		v.setSpacing(25);
 		mainPane.getChildren().add(v);
 		mainPane.getChildren().add(h);
+		mainPane.getChildren().add(v2);
 
-		v.setLayoutX(350);
+		v.setLayoutX(400);
 		v.setLayoutY(50);
 
 		button1.setOnAction(m -> {
@@ -143,38 +174,38 @@ public class level2 {
 
 				if (farmer1onboat == true) {
 					System.out.println(crossers.size());
-					for (int j = 0; j < crossers.size(); j++) {
-						if (crossers.get(j).getweight() == 90)
-							crossersOnBoat.add(crossers.get(j));
+					for (int j = 0; j < game.getCrossersOnRightBank().size(); j++) {
+						if (game.getCrossersOnRightBank().get(j).getweight() == 90)
+							crossersOnBoat.add(game.getCrossersOnRightBank().get(j));
 					}
 				}
 
 				if (goatonboat == true) {
-					for (int j = 0; j < crossers.size(); j++) {
-						if (crossers.get(j) instanceof Herbivorous)
-							crossersOnBoat.add(crossers.get(j));
+					for (int j = 0; j < game.getCrossersOnRightBank().size(); j++) {
+						if (game.getCrossersOnRightBank().get(j) instanceof Herbivorous)
+							crossersOnBoat.add(game.getCrossersOnRightBank().get(j));
 					}
 				}
 
 				if (farmer2onboat == true) {
-					for (int j = 0; j < crossers.size(); j++) {
-						if (crossers.get(j).getweight() == 80)
-							crossersOnBoat.add(crossers.get(j));
+					for (int j = 0; j < game.getCrossersOnRightBank().size(); j++) {
+						if (game.getCrossersOnRightBank().get(j).getweight() == 80)
+							crossersOnBoat.add(game.getCrossersOnRightBank().get(j));
 					}
 				}
 
 				if (farmer3onboat == true) {
-					for (int j = 0; j < crossers.size(); j++) {
-						if (crossers.get(j).getweight() == 60)
-							crossersOnBoat.add(crossers.get(j));
+					for (int j = 0; j < game.getCrossersOnRightBank().size(); j++) {
+						if (game.getCrossersOnRightBank().get(j).getweight() == 60)
+							crossersOnBoat.add(game.getCrossersOnRightBank().get(j));
 						
 					}}
 					if (farmer4onboat == true) {
 						System.out.println("jjjjjjjjjjjjjjjjjkkkkkkkkkkkkk");
 
-						for (int j = 0; j < crossers.size(); j++) {
-							if (crossers.get(j).getweight() == 40)
-								crossersOnBoat.add(crossers.get(j));
+						for (int j = 0; j < game.getCrossersOnRightBank().size(); j++) {
+							if (game.getCrossersOnRightBank().get(j).getweight() == 40)
+								crossersOnBoat.add(game.getCrossersOnRightBank().get(j));
 					}}
 				
 			} else {
@@ -245,8 +276,12 @@ public class level2 {
 				// if(goat.getx()==2) {
 				// goat.moveSubscene();
 				System.out.println("print for go " + game.isBoatOnTheLeftBank());
+				if(game.getCrossersOnLeftBank().size()==5) {Alert alert2 = new Alert(AlertType.INFORMATION);
+				alert2.setTitle("Hello");
+				alert2.setHeaderText("Instructions");alert2.setContentText("bravo");alert2.showAndWait();button7.fire();}
 			}
 			// }
+			label5.setText(String.valueOf(game.getNumberOfSails()));
 
 		});
 
@@ -290,7 +325,8 @@ public class level2 {
 						farmer4.moveSubscene(game.isBoatOnTheLeftBank());
 					}
 				}
-			}
+			}label5.setText(String.valueOf(game.getNumberOfSails()));
+
 
 		});
 		button4.setOnAction(m -> {
@@ -336,7 +372,8 @@ public class level2 {
 					}
 
 				}
-			}
+			}label5.setText(String.valueOf(game.getNumberOfSails()));
+
 
 		});
 
@@ -347,6 +384,29 @@ public class level2 {
 			 
 			 
 		 });
+		 button7.setOnAction(m -> {
+
+				viewmanager manager=new viewmanager();
+				Game game2 = new Game ();
+				game2.setview(manager);
+				manager.setgame(game2);
+			Stage	primaryStage=manager.getMainStage();
+				level1Stage.close();
+				primaryStage.show();
+				
+				
+				
+
+			});
+		 
+		 
+		 button6.setOnAction(m -> {
+
+				level1Stage.close();
+				game.resetGame();
+				System.out.println(game.numberOfSails);
+
+			});
 
 		createsubscene();
 		boolean k = creditssub.moveSubscene();
@@ -357,4 +417,54 @@ public class level2 {
 		farmer4.moveSubscene(game.isBoatOnTheLeftBank());
 
 	}
+	
+	public void loadsaved() {
+		/*System.out.println(this.game);
+		System.out.println(game.getCrossersOnLeftBank().size());
+		System.out.println(game.getCrossersOnRightBank().size());
+		System.out.println(game.getCrossersOnLeftBank().get(0).getweight());
+		System.out.println(game.getCrossersOnLeftBank().get(1).getweight());
+		System.out.println(game.getCrossersOnLeftBank().get(2).getweight());*/
+		if(game.isBoatOnTheLeftBank()==true) {creditssub.moveSubscene();}
+
+		for(int i=0;i<game.getCrossersOnLeftBank().size();i++) {
+			
+			
+			if(game.getCrossersOnLeftBank().get(i).getweight()==90) { System.out.println("kkkkkkkkkkkkkk1");farmer1.moveSubsceneload(true);}
+			if(game.getCrossersOnLeftBank().get(i).getweight()==80) {System.out.println("kkkkkkkkkkkkkk2"); farmer2.moveSubsceneload(true);}
+			if(game.getCrossersOnLeftBank().get(i).getweight()==60) {System.out.println("kkkkkkkkkkkkkk3"); farmer3.moveSubsceneload(true);}
+			if(game.getCrossersOnLeftBank().get(i).getweight()==40) {System.out.println("kkkkkkkkkkkkkk4"); farmer4.moveSubsceneload(true);}
+			if(game.getCrossersOnLeftBank().get(i) instanceof Herbivorous) {System.out.println("kkkkkkkkkkkkkk5"); goat.moveSubsceneload(true);}
+
+			}
+for(int i=0;i<game.getCrossersOnRightBank().size();i++) {
+			
+			if(game.getCrossersOnRightBank().get(i).getweight()==90) { farmer1.moveSubscene(false);}
+			if(game.getCrossersOnRightBank().get(i).getweight()==80) { farmer2.moveSubscene(false);}
+			if(game.getCrossersOnRightBank().get(i).getweight()==60) { farmer3.moveSubscene(false);}
+			if(game.getCrossersOnRightBank().get(i).getweight()==40) { farmer4.moveSubscene(false);}
+			if(game.getCrossersOnRightBank().get(i)instanceof Herbivorous) {goat.moveSubscene(false);}
+
+			      }
+		
+		
+		
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
