@@ -19,6 +19,10 @@ public class Game implements IRiverCrossingController {
 	// private List<ICrosser> CrossersOnRightBankCopy = new ArrayList<ICrosser>();
 	private List<ICrosser> Crossers = new ArrayList<ICrosser>();
 	private ICrossingStrategy gameStrategy;
+	public ICrossingStrategy getGameStrategy() {
+		return gameStrategy;
+	}
+
 	private boolean isBoatOnTheLeftBank = false;
 	public int numberOfSails = 0;
 //	List <List<ICrosser>> state = new ArrayList <>();

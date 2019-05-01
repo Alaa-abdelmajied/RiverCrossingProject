@@ -107,6 +107,10 @@ public class viewmanager {
 			});
 		button1.setOnAction(m->{
 		     game.loadGame();
+		     if(game.getGameStrategy() instanceof Level1)
+		    	 
+		     else
+		    	 
 		});
 		v.setSpacing(50);
 		mainPane.getChildren().add(v);
