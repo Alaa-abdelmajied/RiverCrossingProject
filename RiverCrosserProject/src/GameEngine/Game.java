@@ -19,8 +19,13 @@ public class Game implements IRiverCrossingController {
 	// private List<ICrosser> CrossersOnRightBankCopy = new ArrayList<ICrosser>();
 	private List<ICrosser> Crossers = new ArrayList<ICrosser>();
 	private ICrossingStrategy gameStrategy;
+	private boolean reset;
 	public ICrossingStrategy getGameStrategy() {
 		return gameStrategy;
+	}
+	
+	public void setReset(boolean reset) {
+		this.reset = reset;
 	}
 
 	private boolean isBoatOnTheLeftBank = false;
@@ -68,7 +73,10 @@ public class Game implements IRiverCrossingController {
 	public void resetGame() {
 
 		// newGame(gameStrategy);
-		view.getButton2().fire();
+		if(reset)
+			view.getButton2().fire();
+		else
+			view.getButton3().fire();
 	}
 
 	@Override

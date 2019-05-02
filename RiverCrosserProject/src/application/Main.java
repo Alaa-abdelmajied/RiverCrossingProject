@@ -16,6 +16,7 @@ public class Main extends Application {
 			game.setview(manager);
 			manager.setgame(game);
 			primaryStage=manager.getMainStage();
+			primaryStage.setTitle("River Crossing Puzzle");
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

@@ -28,7 +28,7 @@ public class Level2 implements ICrossingStrategy {
 		System.out.println("boat riders" + boatRiders.size());
 		System.out.println("real left" + leftBankCrossers.size());
 		System.out.println("real right" + rightBankCrossers.size());
-		
+
 		int flag = 1;
 		boolean check = true;
 		if (boatRiders.size() > 2) {
@@ -40,7 +40,7 @@ public class Level2 implements ICrossingStrategy {
 			if (boatRiders.get(i).canSail() == true) {
 				// System.out.println("tany if");
 				flag = 0;
-				//check = false;
+				// check = false;
 			}
 		}
 
@@ -49,12 +49,11 @@ public class Level2 implements ICrossingStrategy {
 				return false;
 		}
 		if (flag == 1)
-		//if(check)
+			// if(check)
 			return false;
 		else
 			return true;
 	}
-	
 
 	@Override
 	public List<ICrosser> getInitialCrossers() {
@@ -64,19 +63,19 @@ public class Level2 implements ICrossingStrategy {
 		ActorFactory factory = new ActorFactory();
 		ICrosserModified farmer1 = factory.getcrosser("farmer");
 		farmer1.setWeight(90);
-		farmer1.setLabelToBeShown("Farmer 1: "+String.valueOf(farmer1.getweight()));
+		farmer1.setLabelToBeShown("Farmer 1: " + String.valueOf(farmer1.getweight()) + " kg");
 		ICrosserModified farmer2 = factory.getcrosser("farmer");
 		farmer2.setWeight(80);
-		farmer2.setLabelToBeShown("Farmer 2: "+String.valueOf(farmer2.getweight()));
+		farmer2.setLabelToBeShown("Farmer 2: " + String.valueOf(farmer2.getweight()) + " kg");
 		ICrosserModified farmer3 = factory.getcrosser("farmer");
 		farmer3.setWeight(60);
-		farmer3.setLabelToBeShown("Farmer 3: "+String.valueOf(farmer3.getweight()));
+		farmer3.setLabelToBeShown("Farmer 3: " + String.valueOf(farmer3.getweight()) + " kg");
 		ICrosserModified farmer4 = factory.getcrosser("farmer");
 		farmer4.setWeight(40);
-		farmer4.setLabelToBeShown("Farmer 4: "+String.valueOf(farmer4.getweight()));
+		farmer4.setLabelToBeShown("Farmer 4: " + String.valueOf(farmer4.getweight()) + " kg");
 		ICrosserModified goat = factory.getcrosser("herbivorous");
 		goat.setWeight(20);
-		goat.setLabelToBeShown("Goat: "+String.valueOf(goat.getweight()));
+		goat.setLabelToBeShown("Goat: " + String.valueOf(goat.getweight()) + " kg");
 
 		intialCrossers.add(farmer1);
 		intialCrossers.add(farmer2);

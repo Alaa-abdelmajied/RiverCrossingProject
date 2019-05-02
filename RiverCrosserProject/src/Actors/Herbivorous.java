@@ -12,7 +12,7 @@ public class Herbivorous implements ICrosserModified {
 
 	private double weight;
 	private String label;
-	
+
 	@Override
 	public double getweight() {
 		return weight;
@@ -26,47 +26,37 @@ public class Herbivorous implements ICrosserModified {
 	@Override
 	public BufferedImage[] getImages() {
 		BufferedImage[] bufferedImages = new BufferedImage[1];
-		 File initialImage = new File("goat.png");
-		 try {
+		File initialImage = new File("goat.png");
+		try {
 			bufferedImages[0] = ImageIO.read(initialImage);
-			BufferedImage scaledImage = new BufferedImage(
-					
-					50, 50, BufferedImage.TYPE_INT_ARGB);
-					
-					 
-					
-					
-					Graphics2D graphics2D = scaledImage.createGraphics();
-					
-					graphics2D.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
-					
-					RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-					
-					graphics2D.drawImage(bufferedImages[0], 0, 0, 50, 50, null);
-					
-					graphics2D.dispose();
-					bufferedImages[0]=scaledImage;
-			
-			
+			BufferedImage scaledImage = new BufferedImage(50, 50, BufferedImage.TYPE_INT_ARGB);
+
+			Graphics2D graphics2D = scaledImage.createGraphics();
+
+			graphics2D.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+
+			graphics2D.drawImage(bufferedImages[0], 0, 0, 50, 50, null);
+
+			graphics2D.dispose();
+			bufferedImages[0] = scaledImage;
+
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return bufferedImages;
 	}
 
 	@Override
 	public void setLabelToBeShown(String label) {
 		this.label = label;
-		
+
 	}
 
 	@Override
 	public String getLabelToBeShown() {
 		return label;
 	}
-	
 
 	public void setWeight(double weight) {
 		this.weight = weight;
