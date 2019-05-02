@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<level1>
+<level2>
 <crossersOnRightBank>
+80.0
+60.0
+40.0
+20.0
 </crossersOnRightBank>
 <crossersOnLeftBank>
-2
-0
-1
-5
+90.0
 </crossersOnLeftBank>
 <isBoatOnTheLeftBank>
 true
 </isBoatOnTheLeftBank>
 <numberOfSails>
-17
+1
 </numberOfSails>
-</level1>
+</level2>

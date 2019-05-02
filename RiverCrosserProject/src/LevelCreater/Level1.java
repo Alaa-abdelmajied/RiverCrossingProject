@@ -34,7 +34,7 @@ public class Level1 implements ICrossingStrategy {
 			}
 		}
 
-		if (rightBankCrossers.size() == 2) {
+		if (rightBankCrossers.size() == 2 || rightBankCrossers.size()==3) {
 			if (Math.abs(rightBankCrossers.get(0).getEatingRank() - rightBankCrossers.get(1).getEatingRank()) == 1) {
 				// System.out.println("talt if");
 
@@ -42,7 +42,7 @@ public class Level1 implements ICrossingStrategy {
 			}
 		}
 
-		if (leftBankCrossers.size() == 2) {
+		if (leftBankCrossers.size() == 2 || leftBankCrossers.size()==3) {
 			if (Math.abs(leftBankCrossers.get(0).getEatingRank() - leftBankCrossers.get(1).getEatingRank()) == 1) {
 				// System.out.println("rab3 if");
 
