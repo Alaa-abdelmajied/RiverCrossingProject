@@ -130,6 +130,12 @@ public class level2 {
 
 		v.setLayoutX(400);
 		v.setLayoutY(50);
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Hello");
+		alert.setHeaderText("Instructions");
+		alert.setContentText(game.getLevel2logic().getInstructions()[0] + game.getLevel2logic().getInstructions()[1]
+				+ game.getLevel2logic().getInstructions()[2]);
+		alert.showAndWait();
 
 		button1.setOnAction(m -> {
 			boolean goatonboat    = false;
