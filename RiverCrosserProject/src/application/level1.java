@@ -1,6 +1,8 @@
 package application;
 
 import java.awt.List;
+import java.nio.file.Paths;
+import java.time.Duration;
 import java.util.ArrayList;
 
 import Actors.Carnivorous;
@@ -9,6 +11,7 @@ import Actors.Herbivorous;
 import Actors.ICrosser;
 import Actors.Plant;
 import GameEngine.Game;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -16,6 +19,10 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaBuilder;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import model.fxxxbutton;
 import model.Levelsbuttons;
@@ -79,7 +86,7 @@ public class level1 {
 		mainPane = new AnchorPane();
 		String mainPanestyle = "-fx-background-image: url('file:backgrounfinal.jpeg');";
 		mainPane.setStyle(mainPanestyle);
-		level1Scene = new Scene(mainPane, 900, 600);
+		level1Scene = new Scene(mainPane, 850, 600);
 		level1Stage = new Stage();
 		level1Stage.setScene(level1Scene);
 		Levelsbuttons button1 = new Levelsbuttons("GO!!");
@@ -89,6 +96,7 @@ public class level1 {
 		Levelsbuttons button5 = new Levelsbuttons("reset");
 		Levelsbuttons button6 = new Levelsbuttons("save");
 		Levelsbuttons button7 = new Levelsbuttons("back");
+		Levelsbuttons button8 = new Levelsbuttons("solve");
 		Label label1 = new Label(crossers.get(0).getLabelToBeShown());
 		Label label2 = new Label(crossers.get(1).getLabelToBeShown());
 		Label label3 = new Label(crossers.get(2).getLabelToBeShown());
@@ -114,8 +122,8 @@ public class level1 {
 		h.getChildren().add(button5);
 		h.getChildren().add(button6);
 		h.getChildren().add(button7);
-
-		h.setSpacing(100);
+		h.getChildren().add(button8);
+		h.setSpacing(50);
 		h.setLayoutX(0);
 		h.setLayoutY(0);
 
@@ -378,6 +386,32 @@ public class level1 {
 			primaryStage = manager.getMainStage();
 			level1Stage.close();
 			primaryStage.show();
+
+		});
+
+		button8.setOnAction(m -> {
+			
+			Media media = new Media(Paths.get("Level1.mp4").toUri().toString());
+			MediaPlayer mediaPlayer = new MediaPlayer(media);
+			MediaView view = new MediaView(mediaPlayer);
+			Group full = new Group();
+			full.getChildren().addAll(view);
+			Scene videoScene = new Scene(full, 860, 608);
+			Stage solveStage = new Stage();
+			solveStage.setScene(videoScene);
+			solveStage.setTitle("Solve");
+			solveStage.show();
+			
+			mediaPlayer.play();
+			
+			
+			
+
+			
+			
+			
+			
+			
 
 		});
 

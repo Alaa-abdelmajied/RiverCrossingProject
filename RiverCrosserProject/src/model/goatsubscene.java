@@ -29,7 +29,7 @@ public class goatsubscene extends SubScene{
 //private  boolean ishidden;
 int x=0;public double y; double z;
 fxxsubscene boat;
-TranslateTransition transition ;
+public TranslateTransition transition ;
 double orgSceneX, orgSceneY;
 double orgTranslateX, orgTranslateY;
 //ICrosser goat = new Herbivorous();

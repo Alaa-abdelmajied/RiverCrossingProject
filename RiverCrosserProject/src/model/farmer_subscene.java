@@ -25,7 +25,7 @@ public class farmer_subscene extends SubScene {
 private  boolean ishidden;
 int x=0;double z;
 fxxsubscene boat;
-public TranslateTransition transition= new TranslateTransition(); ;
+public TranslateTransition transition;
 double orgSceneX, orgSceneY;
 double orgTranslateX, orgTranslateY;
 boolean farmeronboat;

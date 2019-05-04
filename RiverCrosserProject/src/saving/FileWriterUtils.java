@@ -175,7 +175,7 @@ public class FileWriterUtils{
 
             //write to console or file
             StreamResult console = new StreamResult(System.out);
-            StreamResult file = new StreamResult(new File("crossers.txt"));
+            StreamResult file = new StreamResult(new File("crossers.xml"));
 
             //write data
             transformer.transform(source, console);

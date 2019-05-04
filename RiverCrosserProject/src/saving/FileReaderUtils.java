@@ -75,7 +75,7 @@ public class FileReaderUtils {
 
 		try {
 
-			File fXmlFile = new File("crossers.txt");
+			File fXmlFile = new File("crossers.xml");
 
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
