@@ -9,18 +9,6 @@ import Actors.ActorFactory;
 
 public class Level2 implements ICrossingStrategy {
 
-	/*
-	 * Attributes
-	 */
-
-	/*
-	 * Getters and setters
-	 */
-
-	/*
-	 * Behavior
-	 */
-
 	@Override
 	public boolean isValid(List<ICrosser> rightBankCrossers, List<ICrosser> leftBankCrossers,
 			List<ICrosser> boatRiders) {
@@ -32,15 +20,12 @@ public class Level2 implements ICrossingStrategy {
 		int flag = 1;
 		boolean check = true;
 		if (boatRiders.size() > 2) {
-			// System.out.println("2wl if");
 			return false;
 
 		}
 		for (int i = 0; i < boatRiders.size(); i++) {
 			if (boatRiders.get(i).canSail() == true) {
-				// System.out.println("tany if");
 				flag = 0;
-				// check = false;
 			}
 		}
 
@@ -49,7 +34,6 @@ public class Level2 implements ICrossingStrategy {
 				return false;
 		}
 		if (flag == 1)
-			// if(check)
 			return false;
 		else
 			return true;

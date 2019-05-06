@@ -16,25 +16,23 @@ public class Game implements IRiverCrossingController {
 
 	private List<ICrosser> CrossersOnRightBank = new ArrayList<ICrosser>();
 	private List<ICrosser> CrossersOnLeftBank = new ArrayList<ICrosser>();
-	// private List<ICrosser> CrossersOnRightBankCopy = new ArrayList<ICrosser>();
 	private List<ICrosser> Crossers = new ArrayList<ICrosser>();
 	private ICrossingStrategy gameStrategy;
 	private boolean reset;
+
 	public ICrossingStrategy getGameStrategy() {
 		return gameStrategy;
 	}
-	
+
 	public void setReset(boolean reset) {
 		this.reset = reset;
 	}
 
 	private boolean isBoatOnTheLeftBank = false;
 	public int numberOfSails = 0;
-//	List <List<ICrosser>> state = new ArrayList <>();
 	Stack<List<List<ICrosser>>> undo = new Stack<>();
 	Stack<List<List<ICrosser>>> redo = new Stack<>();
 	viewmanager obj = new viewmanager();
-	// ArrayList<List> undoredo = new ArrayList<List>();
 	int cnt = 0;
 	private viewmanager view = new viewmanager();
 	private ICrossingStrategy level1logic = new Level1();
@@ -72,8 +70,7 @@ public class Game implements IRiverCrossingController {
 	@Override
 	public void resetGame() {
 
-		// newGame(gameStrategy);
-		if(reset)
+		if (reset)
 			view.getButton2().fire();
 		else
 			view.getButton3().fire();
@@ -97,41 +94,16 @@ public class Game implements IRiverCrossingController {
 		return CrossersOnLeftBank;
 	}
 
-	// adema
 	@Override
 	public boolean isBoatOnTheLeftBank() {
 		return isBoatOnTheLeftBank;
 	}
-
-//	@Override
-	/*
-	 * public boolean isBoatOnTheLeftBank() { if(numberOfSails%2==0) { return false;
-	 * } return true; //return isBoatOnTheLeftBank; }
-	 */
 
 	@Override
 	public int getNumberOfSails() {
 		return numberOfSails;
 	}
 
-//can move el adema 
-	/*
-	 * @Override public boolean canMove(List<ICrosser> crossers, boolean
-	 * fromLeftToRightBank) { if( gameStrategy.isValid(getCrossersOnRightBank(),
-	 * getCrossersOnLeftBank(), crossers)) {
-	 * //System.out.println(gameStrategy.isValid(getCrossersOnRightBank(),
-	 * getCrossersOnLeftBank(), crossers)); return true; } else return false; /* if
-	 * (fromLeftToRightBank) { for (int i = 0; i < crossers.size(); i++) {
-	 * CrossersOnLeftBank.remove(crossers.get(i));
-	 * CrossersOnRightBank.add(crossers.get(i));
-	 * 
-	 * }
-	 * 
-	 * } else { for (int i = 0; i < crossers.size(); i++) {
-	 * CrossersOnLeftBank.add(crossers.get(i));
-	 * CrossersOnRightBank.remove(crossers.get(i)); } } if(canMove) return true;
-	 * else return false; }
-	 */
 	@Override
 	public boolean canMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
 		System.out.println("makan el boat " + fromLeftToRightBank);
@@ -161,30 +133,6 @@ public class Game implements IRiverCrossingController {
 		return true;
 	}
 
-//adema 
-	/*
-	 * @Override public void doMove(List<ICrosser> crossers, boolean
-	 * fromLeftToRightBank) { //if(canMove(crossers, fromLeftToRightBank)) { if
-	 * (fromLeftToRightBank) { for (int i = 0; i < crossers.size(); i++) {
-	 * CrossersOnLeftBank.remove(crossers.get(i));
-	 * CrossersOnRightBank.add(crossers.get(i));
-	 * 
-	 * }
-	 * 
-	 * state.add(CrossersOnLeftBank); state.add(crossers);
-	 * state.add(CrossersOnRightBank); undo.push(state); numberOfSails ++;
-	 * 
-	 * } else { for (int i = 0; i < crossers.size(); i++) {
-	 * CrossersOnLeftBank.add(crossers.get(i));
-	 * CrossersOnRightBank.remove(crossers.get(i));
-	 * 
-	 * } state.add(CrossersOnLeftBank); state.add(crossers);
-	 * state.add(CrossersOnRightBank); undo.push(state); numberOfSails ++;
-	 * 
-	 * }
-	 * 
-	 * //} }
-	 */
 	@Override
 	public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
 		this.Crossers = crossers;
@@ -209,10 +157,6 @@ public class Game implements IRiverCrossingController {
 		state.add(this.Crossers);
 		state.add(CrossersOnRightBank);
 		undo.push(state);
-		// System.out.println("size of crossers in do move of
-		// undo"+state.get(1).size());
-		// System.out.println("size of undo"+undo.size());
-		// undoredo.add(crossers);
 		numberOfSails++;
 	}
 
@@ -234,9 +178,6 @@ public class Game implements IRiverCrossingController {
 	public void undo() {
 		List<List<ICrosser>> undoArray = new ArrayList<List<ICrosser>>();
 		undoArray = undo.pop();
-		// System.out.println("fwefwefw"+undoArray.size());
-		// System.out.println("fwefwefw22"+undo.pop().size());
-
 		redo.push(undoArray);
 		CrossersOnLeftBank = undoArray.get(0);
 		Crossers = undoArray.get(1);
@@ -262,11 +203,6 @@ public class Game implements IRiverCrossingController {
 
 	}
 
-	/*
-	 * @Override public void undo() {
-	 * 
-	 * }
-	 */
 	@Override
 	public void redo() {
 		List<List<ICrosser>> redoArray = new ArrayList<List<ICrosser>>();
@@ -309,7 +245,6 @@ public class Game implements IRiverCrossingController {
 	public void saveGame() {
 		FileWriterUtils writer = new FileWriterUtils();
 		writer.setBoatOnTheLeftBank(isBoatOnTheLeftBank());
-		//writer.setCrossers(getCrossers());
 		writer.setCrossersOnRightBank(getCrossersOnRightBank());
 		writer.setCrossersOnLeftBank(getCrossersOnLeftBank());
 		writer.setNumberOfSails(getNumberOfSails());
@@ -321,18 +256,16 @@ public class Game implements IRiverCrossingController {
 	public void loadGame() {
 		FileReaderUtils reader = new FileReaderUtils();
 		reader.read();
-		this.CrossersOnLeftBank=reader.getCrossersOnLeftBank();
-		this.CrossersOnRightBank=reader.getCrossersOnRightBank();
-		this.gameStrategy=reader.getGameStrategy();
-		this.isBoatOnTheLeftBank=reader.getisBoatOnTheLeftBank();
-		this.numberOfSails=reader.getNumberOfSails();		
-     System.out.println("right fe game"+this.CrossersOnRightBank.size());
-     //System.out.println(this.CrossersOnRightBank.get(1));
-     //System.out.println(this.CrossersOnLeftBank.get(0));
-     System.out.println(this.CrossersOnLeftBank.size());
-     System.out.println(this.gameStrategy);
-     System.out.println(this.isBoatOnTheLeftBank);
-     System.out.println(this.numberOfSails);
+		this.CrossersOnLeftBank = reader.getCrossersOnLeftBank();
+		this.CrossersOnRightBank = reader.getCrossersOnRightBank();
+		this.gameStrategy = reader.getGameStrategy();
+		this.isBoatOnTheLeftBank = reader.getisBoatOnTheLeftBank();
+		this.numberOfSails = reader.getNumberOfSails();
+		System.out.println("right fe game" + this.CrossersOnRightBank.size());
+		System.out.println(this.CrossersOnLeftBank.size());
+		System.out.println(this.gameStrategy);
+		System.out.println(this.isBoatOnTheLeftBank);
+		System.out.println(this.numberOfSails);
 
 	}
 

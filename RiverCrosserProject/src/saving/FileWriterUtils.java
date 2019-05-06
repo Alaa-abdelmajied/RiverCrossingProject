@@ -40,7 +40,6 @@ import org.w3c.dom.Node;
 public class FileWriterUtils{
 	private List<ICrosser> CrossersOnRightBank = new ArrayList<ICrosser>();
 	private List<ICrosser> CrossersOnLeftBank = new ArrayList<ICrosser>();
-	//private List<ICrosser> Crossers = new ArrayList<ICrosser>();
 	private ICrossingStrategy gameStrategy;
 	private boolean isBoatOnTheLeftBank;
 	private int numberOfSails ;
@@ -53,9 +52,6 @@ public class FileWriterUtils{
 		CrossersOnLeftBank = crossersOnLeftBank;
 	}
 
-	/*public void setCrossers(List<ICrosser> crossers) {
-		Crossers = crossers;
-	}*/
 
 	public void setGameStrategy(ICrossingStrategy gameStrategy) {
 		this.gameStrategy = gameStrategy;
@@ -79,13 +75,11 @@ public class FileWriterUtils{
 
     public void write () {
     	
-    	//List<ICrosser>
      
     	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder;
        
        
-        //java.util.List<> rightbank = new ArrayList <ICrossers> ();
         
         try {
             
@@ -187,33 +181,5 @@ public class FileWriterUtils{
         }
     }
 
-    /*private static Node getEmployee(Document doc, String id, String name, String age, String role,
-            String gender) {
-        Element employee = doc.createElement("Employee");
-
-        //set id attribute
-        employee.setAttribute("id", id);
-
-        //create name element
-        employee.appendChild(getEmployeeElements(doc, employee, "name", name));
-
-        //create age element
-        employee.appendChild(getEmployeeElements(doc, employee, "age", age));
-
-        //create role element
-        employee.appendChild(getEmployeeElements(doc, employee, "role", role));
-
-        //create gender element
-        employee.appendChild(getEmployeeElements(doc, employee, "gender", gender));
-
-        return employee;
-    }
-
-    //utility method to create text node
-    private static Node getEmployeeElements(Document doc, Element element, String name, String value) {
-        Element node = doc.createElement(name);
-        node.appendChild(doc.createTextNode(value));
-        return node;
-    }*/
 
 }

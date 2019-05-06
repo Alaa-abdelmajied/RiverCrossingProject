@@ -80,7 +80,6 @@ public class level2 {
 
 		this.crossers = crossers;
 		this.game = game;
-		System.out.println("ssssss" + this.crossers.get(0));
 		viewmanager x = new viewmanager();
 		mainPane = new AnchorPane();
 		String mainPanestyle = "-fx-background-image: url('file:backgrounfinal.jpeg');";
@@ -101,7 +100,6 @@ public class level2 {
 		Label label4 = new Label(crossers.get(3).getLabelToBeShown());
 		Label label5 = new Label(crossers.get(4).getLabelToBeShown());
 		Label label6 = new Label("Number of moves: " + String.valueOf(game.getNumberOfSails()));
-		System.out.println(crossers.get(4).getLabelToBeShown() + "0000000000000000000000");
 		VBox v2 = new VBox();
 		v2.getChildren().add(label1);
 		v2.getChildren().add(label2);
@@ -148,36 +146,28 @@ public class level2 {
 			boolean farmer4onboat = false;
 			ArrayList<ICrosser> crossersOnBoat = new ArrayList<>();
 
-			// ArrayList<ICrosser> crossersOnBoat = new ArrayList<>();
 			if ((creditssub.getTranslateX() > -430) || (creditssub.getTranslateX() < -537)) {
 				if ((goat.getTranslateX() < -318 && goat.getTranslateX() > -430)
 						^ (goat.getTranslateX() < -537 && goat.getTranslateX() > -655)) {
-					// crossersOnBoat.add(crossers.get(2));
 
 					goatonboat = true;
-					// System.out.println("goat on boat"+crossers.get(2));
 				}
 			}
 			if ((farmer1.getTranslateX() < -318 && farmer1.getTranslateX() > -430)
 					^ (farmer1.getTranslateX() < -537 && farmer1.getTranslateX() > -655)) {
-				// crossersOnBoat.add(crossers.get(0));
 				farmer1onboat = true;
 			}
 			if ((farmer4.getTranslateX() < -318 && farmer4.getTranslateX() > -430)
 					^ (farmer4.getTranslateX() < -537 && farmer4.getTranslateX() > -655)) {
-				// crossersOnBoat.add(crossers.get(0));
 				farmer4onboat = true;
-				System.out.println("farmer 4 on boat 2wl wa7da" + farmer4onboat);
 			}
 
 			if ((farmer3.getTranslateX() < -318 && farmer3.getTranslateX() > -430)
 					^ (farmer3.getTranslateX() < -537 && farmer3.getTranslateX() > -655)) {
-				// crossersOnBoat.add(crossers.get(3));
 				farmer3onboat = true;
 			}
 			if ((farmer2.getTranslateX() < -318 && farmer2.getTranslateX() > -430)
 					^ (farmer2.getTranslateX() < -537 && farmer2.getTranslateX() > -655)) {
-				// crossersOnBoat.add(crossers.get(1));
 				farmer2onboat = true;
 			}
 			if (game.isBoatOnTheLeftBank() == false) {
@@ -212,7 +202,6 @@ public class level2 {
 					}
 				}
 				if (farmer4onboat == true) {
-					System.out.println("jjjjjjjjjjjjjjjjjkkkkkkkkkkkkk");
 
 					for (int j = 0; j < game.getCrossersOnRightBank().size(); j++) {
 						if (game.getCrossersOnRightBank().get(j).getweight() == 40)
@@ -261,14 +250,6 @@ public class level2 {
 				System.out.println("on boat gui" + crossersOnBoat.get(i));
 
 			if (game.canMove(crossersOnBoat, game.isBoatOnTheLeftBank())) {
-				// System.out.println(game.isBoatOnTheLeftBank());
-				// System.out.println(crossersOnBoat.get(1));
-				// System.out.println(crossersOnBoat.get(0));
-
-				// System.out.println(game.getCrossersOnRightBank().get(0));
-				// System.out.println(game.getCrossersOnRightBank().get(1));
-				// System.out.println(game.getCrossersOnRightBank().get(2));
-				// System.out.println(game.getCrossersOnRightBank().get(3));
 
 				game.doMove(crossersOnBoat, game.isBoatOnTheLeftBank());
 
@@ -278,15 +259,6 @@ public class level2 {
 				farmer2.moveSubscene(game.isBoatOnTheLeftBank());
 				farmer3.moveSubscene(game.isBoatOnTheLeftBank());
 				farmer4.moveSubscene(game.isBoatOnTheLeftBank());
-				// game.undo();
-				// this.crossers = game.getCrossers();
-				// System.out.println("hahahahah"+this.crossers.size());
-
-				// crossersOnBoat.clear();
-
-				// System.out.println("the is at"+goat.getTranslateX());
-				// if(goat.getx()==2) {
-				// goat.moveSubscene();
 				System.out.println("print for go " + game.isBoatOnTheLeftBank());
 				if (game.getCrossersOnLeftBank().size() == 5) {
 					Alert alert2 = new Alert(AlertType.INFORMATION);
@@ -297,13 +269,11 @@ public class level2 {
 					button7.fire();
 				}
 			}
-			// }
 			label6.setText("Number of moves: " + String.valueOf(game.getNumberOfSails()));
 		});
 
 		button3.setOnAction(m -> {
 			if (game.canUndo()) {
-				// game.undo();
 				game.commandundo();
 				this.crossersOnBoat = game.getCrossers();
 				System.out.println("print for undo " + game.isBoatOnTheLeftBank());
@@ -347,13 +317,8 @@ public class level2 {
 		});
 		button4.setOnAction(m -> {
 			if (game.canRedo()) {
-				// game.undo();
 				game.commandredo();
-				// this.crossers = game.getCrossers();
 				this.crossersOnBoat = game.getCrossers();
-				// System.out.println("print for undo "+game.isBoatOnTheLeftBank());
-				System.out.println("size of crossers redo gui " + this.crossersOnBoat.size());
-				System.out.println(game.getCrossers().size());
 				creditssub.moveSubscene();
 				for (int i = 0; i < this.crossersOnBoat.size(); i++) {
 					if ((this.crossersOnBoat.get(i).getweight() == 90) && game.isBoatOnTheLeftBank() == true) {
@@ -449,14 +414,6 @@ public class level2 {
 	}
 
 	public void loadsaved() {
-		/*
-		 * System.out.println(this.game);
-		 * System.out.println(game.getCrossersOnLeftBank().size());
-		 * System.out.println(game.getCrossersOnRightBank().size());
-		 * System.out.println(game.getCrossersOnLeftBank().get(0).getweight());
-		 * System.out.println(game.getCrossersOnLeftBank().get(1).getweight());
-		 * System.out.println(game.getCrossersOnLeftBank().get(2).getweight());
-		 */
 		if (game.isBoatOnTheLeftBank() == true) {
 			creditssub.moveSubscene();
 		}
@@ -464,23 +421,18 @@ public class level2 {
 		for (int i = 0; i < game.getCrossersOnLeftBank().size(); i++) {
 
 			if (game.getCrossersOnLeftBank().get(i).getweight() == 90) {
-				System.out.println("kkkkkkkkkkkkkk1");
 				farmer1.moveSubsceneload(true);
 			}
 			if (game.getCrossersOnLeftBank().get(i).getweight() == 80) {
-				System.out.println("kkkkkkkkkkkkkk2");
 				farmer2.moveSubsceneload(true);
 			}
 			if (game.getCrossersOnLeftBank().get(i).getweight() == 60) {
-				System.out.println("kkkkkkkkkkkkkk3");
 				farmer3.moveSubsceneload(true);
 			}
 			if (game.getCrossersOnLeftBank().get(i).getweight() == 40) {
-				System.out.println("kkkkkkkkkkkkkk4");
 				farmer4.moveSubsceneload(true);
 			}
 			if (game.getCrossersOnLeftBank().get(i) instanceof Herbivorous) {
-				System.out.println("kkkkkkkkkkkkkk5");
 				goat.moveSubsceneload(true);
 			}
 

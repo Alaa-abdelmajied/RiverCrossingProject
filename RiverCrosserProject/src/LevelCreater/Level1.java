@@ -19,38 +19,32 @@ public class Level1 implements ICrossingStrategy {
 		System.out.println("boat riders" + boatRiders.size());
 		System.out.println("real left" + leftBankCrossers.size());
 		System.out.println("real right" + rightBankCrossers.size());
-		// int flag = 1;
 		boolean check = true;
 		if (boatRiders.size() > 2) {
-			// System.out.println("2wl if");
 			return false;
 
 		}
 		for (int i = 0; i < boatRiders.size(); i++) {
 			if (boatRiders.get(i).canSail() == true) {
-				// System.out.println("tany if");
 				// flag = 0;
 				check = false;
 			}
 		}
 
-		if (rightBankCrossers.size() == 2 || rightBankCrossers.size()==3) {
+		if (rightBankCrossers.size() == 2 || rightBankCrossers.size() == 3) {
 			if (Math.abs(rightBankCrossers.get(0).getEatingRank() - rightBankCrossers.get(1).getEatingRank()) == 1) {
-				// System.out.println("talt if");
 
 				return false;
 			}
 		}
 
-		if (leftBankCrossers.size() == 2 || leftBankCrossers.size()==3) {
+		if (leftBankCrossers.size() == 2 || leftBankCrossers.size() == 3) {
 			if (Math.abs(leftBankCrossers.get(0).getEatingRank() - leftBankCrossers.get(1).getEatingRank()) == 1) {
-				// System.out.println("rab3 if");
 
 				return false;
 			}
 		}
 
-		// if (flag == 1)
 		if (check)
 			return false;
 		else
